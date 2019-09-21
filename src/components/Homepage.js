@@ -20,7 +20,7 @@ class Homepage extends Component {
 
 
     componentDidMount() {
-        fetch('/api/homepage/')
+        fetch('https://alphasmartback.herokuapp.com/api/homepage/')
             .then(res => res.json())
             .then((data) => {
                 this.setState({articles: data.articles})

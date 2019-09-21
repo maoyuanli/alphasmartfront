@@ -54,7 +54,7 @@ class Feedback extends Component {
         }
         axios.defaults.xsrfHeaderName = "X-CSRFToken";
         axios.defaults.xsrfCookieName = "csrftoken";
-        axios.post('/api/feedback/', feedbackData)
+        axios.post('https://alphasmartback.herokuapp.com/api/feedback/', feedbackData)
             .then((data) => {
                 this.setState({submitResult: data})
             })

@@ -2,24 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fab419a8-3731-4646-8653-bfa3e5c64b04" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Feedback.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Homepage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Searchnews.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Stockmarket.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/static/M.Li.Resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/static/background.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/static/linkedin_mugshot.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Feedback.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Feedback.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Homepage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Searchnews.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Searchnews.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Stockmarket.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Stockmarket.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +76,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1569094369722</updated>
-      <workItem from="1569094375201" duration="1013000" />
+      <workItem from="1569094375201" duration="2443000" />
     </task>
     <task id="LOCAL-00001" summary="works fine. commented out linkedin profile link ( it may change and will not work)">
       <created>1569095387981</created>
@@ -97,7 +85,21 @@
       <option name="project" value="LOCAL" />
       <updated>1569095387981</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="gitignore">
+      <created>1569095448200</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1569095448200</updated>
+    </task>
+    <task id="LOCAL-00003" summary="package-lock.json">
+      <created>1569095469696</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1569095469696</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,6 +118,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="works fine. commented out linkedin profile link ( it may change and will not work)" />
-    <option name="LAST_COMMIT_MESSAGE" value="works fine. commented out linkedin profile link ( it may change and will not work)" />
+    <MESSAGE value="gitignore" />
+    <MESSAGE value="package-lock.json" />
+    <option name="LAST_COMMIT_MESSAGE" value="package-lock.json" />
   </component>
 </project>

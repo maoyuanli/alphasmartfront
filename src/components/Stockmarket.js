@@ -13,7 +13,7 @@ class Stockmarket extends Component {
 
 
     componentDidMount() {
-        fetch('/api/stockmarket/')
+        fetch('https://alphasmartback.herokuapp.com/api/stockmarket/')
             .then(res => res.json())
             .then((data) => {
                 this.setState({market: data.market_return})
