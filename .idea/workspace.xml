@@ -88,8 +88,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1569094369722</updated>
-      <workItem from="1569094375201" duration="771000" />
+      <workItem from="1569094375201" duration="1013000" />
     </task>
+    <task id="LOCAL-00001" summary="works fine. commented out linkedin profile link ( it may change and will not work)">
+      <created>1569095387981</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1569095387981</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,5 +113,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="works fine. commented out linkedin profile link ( it may change and will not work)" />
+    <option name="LAST_COMMIT_MESSAGE" value="works fine. commented out linkedin profile link ( it may change and will not work)" />
   </component>
 </project>

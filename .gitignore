@@ -1,6 +1,10 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+/.idea
+/static
+*.iml
+*.xml
+*.pyc
+*.pyc
 
-# dependencies
 /node_modules
 /.pnp
 .pnp.js
@@ -21,3 +25,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+__pycache__/
+/__pycache__
+
+code
