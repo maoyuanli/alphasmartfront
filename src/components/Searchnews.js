@@ -64,9 +64,9 @@ class Searchnews extends Component {
                         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div className="navbar-nav ml-auto">
                                 <a className="nav-item nav-link" href={resume}>Resume</a>
-                                <a className="nav-item nav-link"
-                                   href="https://www.linkedin.com/in/mao-yuan-li-cfa-ocp-ll-m-ba6364120/">Linkedin
-                                    Profile</a>
+                                {/*<a className="nav-item nav-link"*/}
+                                {/*   href="https://www.linkedin.com/in/mao-yuan-li-cfa-ocp-ll-m-ba6364120/">Linkedin*/}
+                                {/*    Profile</a>*/}
                                 <a className="nav-item nav-link" href="https://github.com/maoyuanli/">GitHub</a>
                             </div>
                         </div>
