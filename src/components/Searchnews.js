@@ -92,9 +92,9 @@ class Searchnews extends Component {
 
                     <h5 align="center"><span className="table_title">Related News & Their Sentiment Scores</span>
                     </h5>
-                    <h6 align="left" className="senti_score_prefix">Overall Sentiment Score is <span
+                    <h5 align="center" className="senti_score_prefix">Overall Sentiment Score is <span
                         id="avg_senti_score" style={(avg_score >= 0) ? styles.green : styles.red}>{avg_score}</span>
-                    </h6>
+                    </h5>
                     <table className="table table-striped">
 
                         <thead>

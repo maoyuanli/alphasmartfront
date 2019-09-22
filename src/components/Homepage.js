@@ -39,7 +39,6 @@ class Homepage extends Component {
             topwords_style: {'font-style': 'italic', 'font-family': 'serif', 'font-weight': 'bold'}
         }
 
-        // const rslts = this.state.articles;
         const rslts = filteredArticles;
         const topWords = this.state.topWordsOfAll;
 
@@ -122,9 +121,9 @@ class Homepage extends Component {
                         </form>
                     </div>
 
-                    <h6 align="left" className="senti_score_prefix">Overall Sentiment Score is <span
+                    <h5 align="center" className="senti_score_prefix">Overall Sentiment Score is <span
                         id="avg_senti_score" style={(avg_score >= 0) ? styles.green : styles.red}>{avg_score}</span>
-                    </h6>
+                    </h5>
                     <table className="table table-striped">
 
                         <thead>
