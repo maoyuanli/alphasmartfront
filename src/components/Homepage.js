@@ -5,6 +5,7 @@ import linkedMugshot from './static/linkedin_mugshot.jpg';
 import {Link} from 'react-router-dom';
 import {avgSentScore, publishTimeCleaner, topWordsFormmat} from './utils';
 import Stockmarket from "./Stockmarket";
+import SharedNavBar from "./SharedNavBar";
 
 
 class Homepage extends Component {
@@ -47,26 +48,7 @@ class Homepage extends Component {
         return (
 
             <div>
-
-                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-
-                    <Link to="/searchnews" className="btn btn-outline-light">Search News & Gauge Sentiment</Link>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarNavAltMarkup"
-                            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div className="navbar-nav ml-auto">
-                            <a className="nav-item nav-link" href={resume}>Resume</a>
-                            {/*<a className="nav-item nav-link"*/}
-                            {/*   href="https://www.linkedin.com/in/mao-yuan-li-cfa-ocp-ll-m-ba6364120/">Linkedin*/}
-                            {/*    Profile</a>*/}
-                            <a className="nav-item nav-link" href="https://github.com/maoyuanli/">GitHub</a>
-                            <Link to="/feedback" className="btn btn-outline-warning">Feedback</Link>
-                        </div>
-                    </div>
-                </nav>
+                <SharedNavBar goBackLink = '/searchnews' goBackText = 'Search News & Gauge Sentiment' ></SharedNavBar>
 
                 <div className="jumbotron text-center">
 

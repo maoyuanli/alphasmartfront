@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import {Link} from "react-router-dom";
 import resume from "./static/M.Li.Resume.pdf";
 import {avgSentScore, publishTimeCleaner} from './utils'
+import SharedNavBar from "./SharedNavBar";
 
 class Searchnews extends Component {
 
@@ -52,26 +53,8 @@ class Searchnews extends Component {
 
         return (
             <div className="mx-auto">
-                <header>
-                    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                <SharedNavBar goBackLink = '/' goBackText = 'Back to Homepage'></SharedNavBar>
 
-                        <Link to="/" className="btn btn-outline-light">Back to Homepage</Link>
-                        <button className="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#navbarNavAltMarkup"
-                                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                            <div className="navbar-nav ml-auto">
-                                <a className="nav-item nav-link" href={resume}>Resume</a>
-                                {/*<a className="nav-item nav-link"*/}
-                                {/*   href="https://www.linkedin.com/in/mao-yuan-li-cfa-ocp-ll-m-ba6364120/">Linkedin*/}
-                                {/*    Profile</a>*/}
-                                <a className="nav-item nav-link" href="https://github.com/maoyuanli/">GitHub</a>
-                            </div>
-                        </div>
-                    </nav>
-                </header>
                 <main role="main">
                     <section className="jumbotron text-center">
                         <div className="container">
