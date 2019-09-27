@@ -26,13 +26,13 @@ const publishTimeCleaner = function (rawDateTime) {
     return rawDateTime.replace(/[T]/g, '@').replace(/[Z]/g, '')
 }
 
-const topWordsFormat = function(rawTopWords){
-    let formatted = rawTopWords.replace(/,/g,', ')
+const topWordsFormat = function (rawTopWords) {
+    let formatted = rawTopWords.replace(/,/g, ', ')
     return formatted
 }
 
-const marketChangeFormat = function(rawNum){
-    return (rawNum*100).toFixed(2) + '%'
+const marketChangeFormat = function (rawNum) {
+    return (rawNum * 100).toFixed(2) + '%'
 }
 
 module.exports = {avgSentScore, publishTimeCleaner, topWordsFormmat: topWordsFormat, marketChangeFormat}

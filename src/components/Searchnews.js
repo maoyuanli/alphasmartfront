@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
-import {Link} from "react-router-dom";
-import resume from "./static/M.Li.Resume.pdf";
 import {avgSentScore, publishTimeCleaner} from './utils'
 import SharedNavBar from "./SharedNavBar";
 
@@ -53,7 +51,7 @@ class Searchnews extends Component {
 
         return (
             <div className="mx-auto">
-                <SharedNavBar goBackLink = '/' goBackText = 'Back to Homepage'></SharedNavBar>
+                <SharedNavBar goBackLink='/' goBackText='Back to Homepage'></SharedNavBar>
 
                 <main role="main">
                     <section className="jumbotron text-center">

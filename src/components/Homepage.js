@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import resume from './static/M.Li.Resume.pdf';
 import linkedMugshot from './static/linkedin_mugshot.jpg';
-import {Link} from 'react-router-dom';
 import {avgSentScore, publishTimeCleaner, topWordsFormmat} from './utils';
 import Stockmarket from "./Stockmarket";
 import SharedNavBar from "./SharedNavBar";
@@ -48,7 +46,7 @@ class Homepage extends Component {
         return (
 
             <div>
-                <SharedNavBar goBackLink = '/searchnews' goBackText = 'Search News & Gauge Sentiment' ></SharedNavBar>
+                <SharedNavBar goBackLink='/searchnews' goBackText='Search News & Gauge Sentiment'></SharedNavBar>
 
                 <div className="jumbotron text-center">
 
