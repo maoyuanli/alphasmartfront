@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
-import {avgSentScore, publishTimeCleaner} from './utils'
+import {avgSentScore, publishTimeCleaner, filterZeroSentAndNullDescr} from './utils'
 import SharedNavBar from "./SharedNavBar";
 
 class Searchnews extends Component {
@@ -45,7 +45,8 @@ class Searchnews extends Component {
             green: {color: 'green'}
         };
 
-        const rslts = this.state.articles;
+        const raw_rslts = this.state.articles;
+        let rslts = filterZeroSentAndNullDescr(raw_rslts);
 
         let avg_score = avgSentScore(rslts);
 

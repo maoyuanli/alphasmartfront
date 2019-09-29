@@ -12,9 +12,9 @@ class App extends Component {
             <div className="App">
                 <BrowserRouter>
                     <Switch>
-                        <Route path="/feedback" component={Feedback} />
-                        <Route path="/searchnews" component={Searchnews}/>
-                        <Route path="/" component={Homepage}/>
+                        <Route exact path="/" component={Homepage}/>
+                        <Route exact path="/searchnews" component={Searchnews}/>
+                        <Route exact path="/feedback" component={Feedback} />
                     </Switch>
                 </BrowserRouter>
             </div>

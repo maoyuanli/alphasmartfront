@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import linkedMugshot from './static/linkedin_mugshot.jpg';
-import {avgSentScore, publishTimeCleaner, topWordsFormmat} from './utils';
+import {avgSentScore, publishTimeCleaner, topWordsFormat, filterZeroSentAndNullDescr} from './utils';
 import Stockmarket from "./Stockmarket";
 import SharedNavBar from "./SharedNavBar";
 
@@ -23,7 +23,7 @@ class Homepage extends Component {
             .then(res => res.json())
             .then((data) => {
                 this.setState({articles: data.articles})
-                this.setState({topWordsOfAll: topWordsFormmat(data.articles[0].top_words_of_all)})
+                this.setState({topWordsOfAll: topWordsFormat(data.articles[0].top_words_of_all)})
             })
 
     }
@@ -31,7 +31,8 @@ class Homepage extends Component {
 
     render() {
         const {articles, filterTitle} = this.state;
-        const filteredArticles = articles.filter(article => article.title.toLowerCase().includes(filterTitle.toLowerCase()));
+        let non_zero_sent = filterZeroSentAndNullDescr(articles);
+        let filteredArticles = non_zero_sent.filter(article => article.title.toLowerCase().includes(filterTitle.toLowerCase()));
         const styles = {
             red: {color: 'red'},
             green: {color: 'green'},

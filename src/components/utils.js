@@ -20,19 +20,36 @@ const avgSentScore = function (articleJsonList) {
         return 0
     }
 
-}
+};
 
 const publishTimeCleaner = function (rawDateTime) {
     return rawDateTime.replace(/[T]/g, '@').replace(/[Z]/g, '')
-}
+};
 
 const topWordsFormat = function (rawTopWords) {
-    let formatted = rawTopWords.replace(/,/g, ', ')
+    let formatted = rawTopWords.replace(/,/g, ', ');
     return formatted
-}
+};
 
 const marketChangeFormat = function (rawNum) {
     return (rawNum * 100).toFixed(2) + '%'
+};
+
+const filterZeroSentAndNullDescr = (articles) => {
+    const rslt = articles.filter((article)=>{
+        if(article.sentiment != 0 && article.description != null){
+            return article;
+        }else {
+            return null;
+        }
+    })
+    return rslt;
 }
 
-module.exports = {avgSentScore, publishTimeCleaner, topWordsFormmat: topWordsFormat, marketChangeFormat}
+    module.exports = {
+        avgSentScore,
+        publishTimeCleaner,
+        topWordsFormat,
+        marketChangeFormat,
+        filterZeroSentAndNullDescr
+    }
