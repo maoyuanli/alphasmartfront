@@ -11,6 +11,7 @@ class Homepage extends Component {
         super(props);
         this.state = {
             articles: [],
+            market:'',
             topwords: '',
             filterTitle: ''
         }
@@ -22,8 +23,13 @@ class Homepage extends Component {
         fetch('https://alphasmartback.herokuapp.com/api/homepage/')
             .then(res => res.json())
             .then((data) => {
-                this.setState({articles: data.articles})
+                this.setState({articles: data.articles});
                 this.setState({topWordsOfAll: topWordsFormat(data.articles[0].top_words_of_all)})
+            });
+        fetch('https://alphasmartback.herokuapp.com/api/stockmarket/')
+            .then(res => res.json())
+            .then((data) => {
+                this.setState({market: data.market_return})
             })
 
     }
@@ -76,7 +82,7 @@ class Homepage extends Component {
 
                 <section>
                     <div className="container">
-                        <Stockmarket></Stockmarket>
+                        <Stockmarket market={this.state.market}></Stockmarket>
                     </div>
                 </section>
                 <br/>

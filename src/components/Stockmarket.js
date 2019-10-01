@@ -5,21 +5,21 @@ import {marketChangeFormat} from './utils';
 class Stockmarket extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            market: ''
-        }
+        // this.state = {
+        //     market: ''
+        // }
 
     };
 
 
-    componentDidMount() {
-        fetch('https://alphasmartback.herokuapp.com/api/stockmarket/')
-            .then(res => res.json())
-            .then((data) => {
-                this.setState({market: data.market_return})
-            })
-
-    }
+    // componentDidMount() {
+    //     fetch('https://alphasmartback.herokuapp.com/api/stockmarket/')
+    //         .then(res => res.json())
+    //         .then((data) => {
+    //             this.setState({market: data.market_return})
+    //         })
+    //
+    // }
 
 
     render() {
@@ -29,7 +29,7 @@ class Stockmarket extends Component {
             green: {color: 'green'},
         }
 
-        if (this.state.market == null){
+        if (this.props.market == null){
             var rslts = {
                 change:'Market Data Unavailable',
                 latest_date:'Market Data Unavailable',
@@ -38,7 +38,7 @@ class Stockmarket extends Component {
                 benchmark_val:'Market Data Unavailable'
             }
         }else {
-            var rslts = this.state.market;
+            var rslts = this.props.market;
         }
 
 
