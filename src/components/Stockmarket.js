@@ -5,22 +5,7 @@ import {marketChangeFormat} from './utils';
 class Stockmarket extends Component {
     constructor(props) {
         super(props);
-        // this.state = {
-        //     market: ''
-        // }
-
     };
-
-
-    // componentDidMount() {
-    //     fetch('https://alphasmartback.herokuapp.com/api/stockmarket/')
-    //         .then(res => res.json())
-    //         .then((data) => {
-    //             this.setState({market: data.market_return})
-    //         })
-    //
-    // }
-
 
     render() {
 
