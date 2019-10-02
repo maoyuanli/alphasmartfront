@@ -3,9 +3,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import {marketChangeFormat} from './utils';
 
 class Stockmarket extends Component {
-    constructor(props) {
-        super(props);
-    };
 
     render() {
 
@@ -23,7 +20,7 @@ class Stockmarket extends Component {
                 benchmark_val:'Market Data Unavailable'
             }
         }else {
-            var rslts = this.props.market;
+            rslts = this.props.market;
         }
 
 

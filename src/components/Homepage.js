@@ -42,7 +42,7 @@ class Homepage extends Component {
         const styles = {
             red: {color: 'red'},
             green: {color: 'green'},
-            topwords_style: {'font-style': 'italic', 'font-family': 'serif', 'font-weight': 'bold'}
+            topwords_style: {'ontStyle': 'italic', 'fontFamily': 'serif', 'fontWeight': 'bold'}
         }
 
         const rslts = filteredArticles;
@@ -57,7 +57,7 @@ class Homepage extends Component {
 
                 <div className="jumbotron text-center">
 
-                    <div id="BuiltWith" class="container">
+                    <div id="BuiltWith" className="container">
                         <h3 className="jumbotron-heading">Built with React & Django</h3>
                         <h2 className="jumbotron-heading">Powered by AI</h2>
 

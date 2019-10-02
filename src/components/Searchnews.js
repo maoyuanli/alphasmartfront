@@ -61,12 +61,12 @@ class Searchnews extends Component {
                         </div>
                     </section>
                     <div>
-                        <form onSubmit={this.submit} class="form-inline md-form mr-auto mb-4">
+                        <form onSubmit={this.submit} className="form-inline md-form mr-auto mb-4">
                             <input className="form-control mr-sm-2" type="text" name="searchFor" id="searchField"
                                    placeholder="Search Keyword"
                                    onChange={this.changeTerm}/>
-                            <button type="submit" class="btn btn-outline-success" id="searchBtn">Search</button>
-                            <button type="submit" class="btn btn-outline-dark" id="clearBtn"
+                            <button type="submit" className="btn btn-outline-success" id="searchBtn">Search</button>
+                            <button type="submit" className="btn btn-outline-dark" id="clearBtn"
                                     onClick={this.resetForm}>Clear
                             </button>
                         </form>

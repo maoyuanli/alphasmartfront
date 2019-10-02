@@ -37,7 +37,7 @@ const marketChangeFormat = function (rawNum) {
 
 const filterZeroSentAndNullDescr = (articles) => {
     const rslt = articles.filter((article)=>{
-        if(article.sentiment != 0 && article.description != null){
+        if(article.sentiment !== 0 && article.description != null){
             return article;
         }else {
             return null;
