@@ -16,11 +16,13 @@ class WaitLoader extends Component{
 
         if(this.props.loading === true){
             return <div className='sweet-loading'>
-                <h3>Calculating </h3>
+                <br/>
+                <h2>Calculating </h2>
+                <br/>
                 <GridLoader
                     css={override}
                     sizeUnit={"px"}
-                    size={50}
+                    size={80}
                     color={'#123abc'}
                     loading={this.props.loading}
                 />

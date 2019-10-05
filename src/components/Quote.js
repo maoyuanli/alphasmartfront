@@ -50,7 +50,12 @@ class Quote extends Component {
                 <SharedNavBar goBackLinks={goBackLinks}></SharedNavBar>
 
                 <main role="main">
-
+                    <section className="jumbotron text-center">
+                        <div className="container">
+                            <h3 className="jumbotron-heading">Top Picks of the Day</h3>
+                        </div>
+                    </section>
+                    <WaitLoader loading={this.state.loading}/>
                     <div className="container">
                         <div className="row justify-content-center">
                             <div className="card-columns">
@@ -100,15 +105,14 @@ class Quote extends Component {
                                                 rootProps={{'data-testid': '1'}}
                                             />
                                         </div>
-
                                     )
                                 })}
-
                             </div>
-                            <WaitLoader loading={this.state.loading}/>
                         </div>
                     </div>
                 </main>
+                <footer className="footer mt-auto py-3"><cite title="Source Title">Disclaimer: </cite> This website is for demostrations purpose only. It does not offer investment advice and nothing in them should be construed as investment advice.
+                </footer>
             </div>
         )
     }

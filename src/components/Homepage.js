@@ -4,6 +4,7 @@ import linkedMugshot from './static/linkedin_mugshot.jpg';
 import {avgSentScore, publishTimeCleaner, topWordsFormat, filterZeroSentAndNullDescr} from './utilities/utils';
 import Stockmarket from "./Stockmarket";
 import SharedNavBar from "./utilities/SharedNavBar";
+import WaitLoader from "./utilities/WaitLoader";
 
 
 class Homepage extends Component {
@@ -14,6 +15,7 @@ class Homepage extends Component {
             market: '',
             topwords: '',
             filterTitle: '',
+            loading : true,
         }
 
     };
@@ -23,13 +25,13 @@ class Homepage extends Component {
         fetch('https://alphasmartback.herokuapp.com/api/homepage/')
             .then(res => res.json())
             .then((data) => {
-                this.setState({articles: data.articles});
-                this.setState({topWordsOfAll: topWordsFormat(data.articles[0].top_words_of_all)})
+                this.setState({articles: data.articles,
+                    topWordsOfAll: topWordsFormat(data.articles[0].top_words_of_all)})
             });
         fetch('https://alphasmartback.herokuapp.com/api/stockmarket/')
             .then(res => res.json())
             .then((data) => {
-                this.setState({market: data.market_return})
+                this.setState({market: data.market_return, loading:false})
             });
         fetch('https://alphaspring.herokuapp.com/api/quote/')
             .then(res => res.json())
@@ -90,7 +92,7 @@ class Homepage extends Component {
                     </div>
 
                 </div>
-
+                <WaitLoader loading={this.state.loading}/>
                 <section>
                     <div className="container">
                         <Stockmarket market={this.state.market}></Stockmarket>
