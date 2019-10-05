@@ -1,0 +1,21 @@
+h1 { font-size: 170% !important; }
+h2 { font-size: 150% !important; }
+h3 { font-size: 130% !important; }
+h4 { font-size: 110% !important; }
+
+div.card {
+    margin: 20px;
+    border: #ddd solid 1px;
+    background: #f4f4f4;
+    font-size: 14px;
+    padding: 10px;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s; /* Safari 3.1 to 6.0 */
+}
+
+div.card:hover {
+     margin: 12px;
+     background: lightskyblue;
+     box-shadow: 10px 10px grey;
+ }
+

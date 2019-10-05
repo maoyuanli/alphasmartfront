@@ -49,11 +49,20 @@ class Homepage extends Component {
         const topWords = this.state.topWordsOfAll;
 
         let avg_score = avgSentScore(rslts);
-
+        const goBackLinks = [
+            {
+                address:'/searchnews',
+                text:'Search News & Gauge Sentiment'
+            },
+            {
+                address: '/quote',
+                text:'Quotes'
+            }
+        ]
         return (
 
             <div>
-                <SharedNavBar goBackLink='/searchnews' goBackText='Search News & Gauge Sentiment'></SharedNavBar>
+                <SharedNavBar goBackLinks={goBackLinks} ></SharedNavBar>
 
                 <div className="jumbotron text-center">
 

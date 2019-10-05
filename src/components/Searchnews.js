@@ -49,10 +49,15 @@ class Searchnews extends Component {
         let rslts = filterZeroSentAndNullDescr(raw_rslts);
 
         let avg_score = avgSentScore(rslts);
-
+        const goBackLinks = [
+            {
+                address:'/',
+                text:'Back to Homepage'
+            }
+        ];
         return (
             <div className="mx-auto">
-                <SharedNavBar goBackLink='/' goBackText='Back to Homepage'></SharedNavBar>
+                <SharedNavBar goBackLinks={goBackLinks}></SharedNavBar>
 
                 <main role="main">
                     <section className="jumbotron text-center">
