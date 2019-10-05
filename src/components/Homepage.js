@@ -33,6 +33,9 @@ class Homepage extends Component {
             .then((data) => {
                 this.setState({market: data.market_return})
             });
+
+    }
+    UNSAFE_componentWillMount() {
         fetch('https://alphaspring.herokuapp.com/api/quote/')
             .then(res => res.json())
             .then((data) => {
@@ -40,9 +43,7 @@ class Homepage extends Component {
                     quotes: data.quotes,
                     loading: false
                 });
-                console.log(this.state.quotes)
             });
-
     }
 
 
