@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import SharedNavBar from "./utilities/SharedNavBar";
 import {Chart} from "react-google-charts";
 import WaitLoader from './utilities/WaitLoader';
+import SharedHeader from "./utilities/SharedHeader";
 
 class Quote extends Component {
 
@@ -50,11 +51,7 @@ class Quote extends Component {
                 <SharedNavBar goBackLinks={goBackLinks}></SharedNavBar>
 
                 <main role="main">
-                    <section className="jumbotron text-center">
-                        <div className="container">
-                            <h3 className="jumbotron-heading">Top Picks of the Day</h3>
-                        </div>
-                    </section>
+                    <SharedHeader text={"Top Picks of the Day"}/>
                     <WaitLoader loading={this.state.loading}/>
                     <div className="container">
                         <div className="row justify-content-center">

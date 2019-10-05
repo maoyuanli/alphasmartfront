@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios';
-import {Link} from "react-router-dom";
 import Popup from 'reactjs-popup';
+import SharedNavBar from "./utilities/SharedNavBar";
+import SharedHeader from "./utilities/SharedHeader";
 
 
 class Feedback extends Component {
@@ -66,30 +67,27 @@ class Feedback extends Component {
 
 
     render() {
+        const goBackLinks = [
+            {
+                address:'/',
+                text:'Back to Homepage'
+            }
+        ];
         const subRslt = this.state.submitResult.data;
         let subRsltText = "";
         if (subRslt != null) {
             subRsltText = String(subRslt.success);
-            // const rsltDiv = document.createElement('p');
-            // let rsltText = document.createTextNode(String(subRslt.success));
-            // rsltDiv.appendChild(rsltText);
-            // document.body.appendChild(rsltDiv);
         }
-        console.log(subRsltText);
-        return (
-            <div class="container">
-                <header>
-                    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                        <Link to="/" className="btn btn-outline-light">Back to Homepage</Link>
-                    </nav>
-                </header>
-                <br/>
-                <h3>Leave a Message to Mao</h3>
-                <br/>
 
+        return (
+            <div className="container">
+                <header>
+                    <SharedNavBar goBackLinks={goBackLinks}></SharedNavBar>
+                </header>
+                <SharedHeader text={"Leave a Message to Mao"}/>
                 <form onSubmit={this.onSubmitHandler}>
                     <div className="form-group">
-                        <label For="exampleFormControlInput1">Name</label>
+                        <label>Name</label>
                         <input type="text" className="form-control" name="name" value={this.state.name}
                                onChange={this.onChangeNameHandler}
                                placeholder="John Snow"/>

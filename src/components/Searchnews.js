@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
 import {avgSentScore, publishTimeCleaner, filterZeroSentAndNullDescr} from './utilities/utils'
 import SharedNavBar from "./utilities/SharedNavBar";
+import SharedHeader from "./utilities/SharedHeader";
 
 class Searchnews extends Component {
 
@@ -60,11 +61,7 @@ class Searchnews extends Component {
                 <SharedNavBar goBackLinks={goBackLinks}></SharedNavBar>
 
                 <main role="main">
-                    <section className="jumbotron text-center">
-                        <div className="container">
-                            <h3 className="jumbotron-heading">Put in Keywords, Search for News</h3>
-                        </div>
-                    </section>
+                    <SharedHeader text={"Put in Keywords, Search for News"}/>
                     <div>
                         <form onSubmit={this.submit} className="form-inline md-form mr-auto mb-4">
                             <input className="form-control mr-sm-2" type="text" name="searchFor" id="searchField"
