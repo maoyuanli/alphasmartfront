@@ -13,7 +13,9 @@ class Homepage extends Component {
             articles: [],
             market:'',
             topwords: '',
-            filterTitle: ''
+            filterTitle: '',
+            quotes: [],
+            loading: true
         }
 
     };
@@ -30,7 +32,16 @@ class Homepage extends Component {
             .then(res => res.json())
             .then((data) => {
                 this.setState({market: data.market_return})
-            })
+            });
+        fetch('https://alphaspring.herokuapp.com/api/quote/')
+            .then(res => res.json())
+            .then((data) => {
+                this.setState({
+                    quotes: data.quotes,
+                    loading: false
+                });
+                console.log(this.state.quotes)
+            });
 
     }
 

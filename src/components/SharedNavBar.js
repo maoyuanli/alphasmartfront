@@ -5,7 +5,6 @@ import {Link} from "react-router-dom";
 class SharedNavBar extends Component {
     render() {
         const gblinks = this.props.goBackLinks;
-        console.log(gblinks);
         return (
             <div>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
