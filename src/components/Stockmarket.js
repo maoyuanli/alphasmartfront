@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import {marketChangeFormat} from './utils';
+import {marketChangeFormat} from './utilities/utils';
 
 class Stockmarket extends Component {
 

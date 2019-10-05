@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
-import {avgSentScore, publishTimeCleaner, filterZeroSentAndNullDescr} from './utils'
-import SharedNavBar from "./SharedNavBar";
+import {avgSentScore, publishTimeCleaner, filterZeroSentAndNullDescr} from './utilities/utils'
+import SharedNavBar from "./utilities/SharedNavBar";
 
 class Searchnews extends Component {
 

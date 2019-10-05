@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
-import SharedNavBar from "./SharedNavBar";
-import './Quote.css';
+import SharedNavBar from "./utilities/SharedNavBar";
 import {Chart} from "react-google-charts";
-import WaitLoader from './WaitLoader';
+import WaitLoader from './utilities/WaitLoader';
 
 class Quote extends Component {
 

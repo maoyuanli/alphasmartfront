@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import linkedMugshot from './static/linkedin_mugshot.jpg';
-import {avgSentScore, publishTimeCleaner, topWordsFormat, filterZeroSentAndNullDescr} from './utils';
+import {avgSentScore, publishTimeCleaner, topWordsFormat, filterZeroSentAndNullDescr} from './utilities/utils';
 import Stockmarket from "./Stockmarket";
-import SharedNavBar from "./SharedNavBar";
+import SharedNavBar from "./utilities/SharedNavBar";
 
 
 class Homepage extends Component {
@@ -11,11 +11,9 @@ class Homepage extends Component {
         super(props);
         this.state = {
             articles: [],
-            market:'',
+            market: '',
             topwords: '',
             filterTitle: '',
-            quotes: [],
-            loading: true
         }
 
     };
@@ -35,13 +33,7 @@ class Homepage extends Component {
             });
         fetch('https://alphaspring.herokuapp.com/api/quote/')
             .then(res => res.json())
-            .then((data) => {
-                this.setState({
-                    quotes: data.quotes,
-                    loading: false
-                });
-                // console.log(this.state.quotes);
-            });
+        ;
     }
 
 
@@ -61,18 +53,18 @@ class Homepage extends Component {
         let avg_score = avgSentScore(rslts);
         const goBackLinks = [
             {
-                address:'/searchnews',
-                text:'Search News & Gauge Sentiment'
+                address: '/searchnews',
+                text: 'Search News & Gauge Sentiment'
             },
             {
                 address: '/quote',
-                text:'Top Stock Picks'
+                text: 'Top Stock Picks'
             }
         ]
         return (
 
             <div>
-                <SharedNavBar goBackLinks={goBackLinks} ></SharedNavBar>
+                <SharedNavBar goBackLinks={goBackLinks}></SharedNavBar>
 
                 <div className="jumbotron text-center">
 
