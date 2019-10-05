@@ -74,3 +74,10 @@ hr.new1 {
 #filterDiv{
     display: block;
 }
+
+#leftLinks{
+    font-size: medium;
+    color: midnightblue;
+    font-weight: bolder;
+}
+

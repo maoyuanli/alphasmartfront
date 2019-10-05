@@ -7,10 +7,10 @@ class SharedNavBar extends Component {
         const gblinks = this.props.goBackLinks;
         return (
             <div>
-                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                <nav className="navbar navbar-expand-lg bg-light" id={"sharedNavBar"}>
                     {gblinks.map((link, index) => {
                         return (
-                            <Link key={index} to={link.address} className="btn btn-outline-light">{link.text}</Link>
+                            <Link key={index} to={link.address} className="nav-item nav-link" id={"leftLinks"}>{link.text}</Link>
                         )
                     })}
 
@@ -22,7 +22,7 @@ class SharedNavBar extends Component {
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav ml-auto">
                             <a className="nav-item nav-link" href="https://github.com/maoyuanli/">GitHub</a>
-                            <Link to="/feedback" className="btn btn-outline-warning">Feedback</Link>
+                            <Link to="/feedback" className="nav-item nav-link">Feedback</Link>
                         </div>
                     </div>
                 </nav>
