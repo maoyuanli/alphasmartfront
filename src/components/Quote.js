@@ -30,7 +30,13 @@ class Quote extends Component {
     volFormat = vol => vol.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     priceFormat = price => price.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
     getDayfromDate = date => date.split(/[- ]+/).pop();
-
+    datePricePair = (data) => {
+        let rslt = [['x', 'close']];
+        for (let i = data.length-1; i >= 0; i--) {
+            rslt.push([data[i][0],data[i][4]])
+        }
+        return rslt;
+    };
 
     render() {
 
@@ -38,8 +44,8 @@ class Quote extends Component {
 
         const goBackLinks = [
             {
-                address:'/',
-                text:'Back to Homepage'
+                address: '/',
+                text: 'Back to Homepage'
             }
         ];
 
@@ -67,32 +73,20 @@ class Quote extends Component {
                                                     <p className="display-4 align-self-end">{this.priceFormat(quote.dataset.data[0][4])}</p>
                                                     <p className="align-self-end pb-2"> vol {this.volFormat(quote.dataset.data[0][5])}</p>
                                                 </div>
-                                                {/*{quote.dataset.data.map((data)=>{console.log([[data[0],data[4]]]) })}*/}
+
+
+
                                             </div>
                                             <Chart
                                                 width={'380px'}
                                                 height={'200px'}
                                                 chartType="LineChart"
                                                 loader={<div>Loading Chart</div>}
-                                                data={[
-                                                    ['x', 'close'],
-                                                    [quote.dataset.data[11][0], quote.dataset.data[11][4]],
-                                                    [quote.dataset.data[10][0], quote.dataset.data[10][4]],
-                                                    [quote.dataset.data[9][0], quote.dataset.data[9][4]],
-                                                    [quote.dataset.data[8][0], quote.dataset.data[8][4]],
-                                                    [quote.dataset.data[7][0], quote.dataset.data[7][4]],
-                                                    [quote.dataset.data[6][0], quote.dataset.data[6][4]],
-                                                    [quote.dataset.data[5][0], quote.dataset.data[5][4]],
-                                                    [quote.dataset.data[4][0], quote.dataset.data[4][4]],
-                                                    [quote.dataset.data[3][0], quote.dataset.data[3][4]],
-                                                    [quote.dataset.data[2][0], quote.dataset.data[2][4]],
-                                                    [quote.dataset.data[1][0], quote.dataset.data[1][4]],
-                                                    [quote.dataset.data[0][0], quote.dataset.data[0][4]],
-                                                ]}
+                                                data={this.datePricePair(quote.dataset.data)}
                                                 options={{
                                                     lineWidth: 3,
                                                     hAxis: {
-                                                        title: 'Date',
+                                                        title: 'history',
                                                         textPosition: 'none',
                                                     },
                                                     vAxis: {
@@ -108,7 +102,9 @@ class Quote extends Component {
                         </div>
                     </div>
                 </main>
-                <footer className="footer mt-auto py-3"><cite title="Source Title">Disclaimer: </cite> This website is for demostrations purpose only. It does not offer investment advice and nothing in them should be construed as investment advice.
+                <footer className="footer mt-auto py-3"><cite title="Source Title">Disclaimer: </cite> This website is
+                    for demostrations purpose only. It does not offer investment advice and nothing in them should be
+                    construed as investment advice.
                 </footer>
             </div>
         )
