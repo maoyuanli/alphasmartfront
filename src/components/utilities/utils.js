@@ -36,20 +36,27 @@ const marketChangeFormat = function (rawNum) {
 };
 
 const filterZeroSentAndNullDescr = (articles) => {
-    const rslt = articles.filter((article)=>{
-        if(article.sentiment !== 0 && article.description != null){
+    const rslt = articles.filter((article) => {
+        if (article.sentiment !== 0 && article.description != null) {
             return article;
-        }else {
+        } else {
             return null;
         }
-    })
+    });
     return rslt;
-}
+};
 
-    module.exports = {
-        avgSentScore,
-        publishTimeCleaner,
-        topWordsFormat,
-        marketChangeFormat,
-        filterZeroSentAndNullDescr
-    }
+const ScoreNumColorStyle = {
+    red: {color: 'red'},
+    green: {color: 'green'},
+    topwords_style: {'ontStyle': 'italic', 'fontFamily': 'serif', 'fontWeight': 'bold'}
+};
+
+module.exports = {
+    avgSentScore,
+    publishTimeCleaner,
+    topWordsFormat,
+    marketChangeFormat,
+    filterZeroSentAndNullDescr,
+    ScoreNumColorStyle
+};

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
-import {avgSentScore, publishTimeCleaner, filterZeroSentAndNullDescr} from './utilities/utils'
+import {avgSentScore, filterZeroSentAndNullDescr} from './utilities/utils'
 import SharedNavBar from "./utilities/SharedNavBar";
 import SharedHeader from "./utilities/SharedHeader";
+import SharedArticlesTable from "./utilities/SharedArticlesTable";
 
 class Searchnews extends Component {
 
@@ -79,35 +80,7 @@ class Searchnews extends Component {
                     <h5 align="center" className="senti_score_prefix">Overall Sentiment Score is <span
                         id="avg_senti_score" style={(avg_score >= 0) ? styles.green : styles.red}>{avg_score}</span>
                     </h5>
-                    <table className="table table-striped">
-
-                        <thead>
-
-                        <tr>
-                            <th>Title</th>
-                            <th>Sentiment</th>
-                            <th>Source</th>
-                            <th>Summary</th>
-                            <th>Publish Date</th>
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        {rslts.map((article, index) => {
-                            return (<tr key={index}>
-                                    <td><a href={article.url}>{article.title}</a></td>
-                                    <td><span
-                                        style={(article.sentiment >= 0) ? styles.green : styles.red}>{article.sentiment}</span>
-                                    </td>
-                                    <td>{article.source.name}</td>
-                                    <td>{article.description}</td>
-                                    <td>{publishTimeCleaner(article.publishedAt)}</td>
-                                </tr>
-
-                            )
-                        })}
-                        </tbody>
-                    </table>
+                   <SharedArticlesTable articles={rslts}/>
                 </main>
             </div>
         )

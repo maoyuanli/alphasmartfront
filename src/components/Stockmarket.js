@@ -28,11 +28,13 @@ class Stockmarket extends Component {
             <div>
 
                 <div className="table-responsive">
-                    <h5>NASDAQ-100 PM Settlement Value (XQC)</h5>
+                    <h5>NASDAQ-100 PM Settlement Value (XQC) Movement is
+                        <span style={(rslts.change >= 0) ? styles.green : styles.red}> {marketChangeFormat(rslts.change)}</span>
+                    </h5>
                     <table className="table table-striped">
                         <thead>
                         <tr>
-                            <th>Change</th>
+                            {/*<th>Change</th>*/}
                             <th>Latest Closing</th>
                             <th>Latest Value</th>
                             <th>Benchmark Closing</th>
@@ -42,7 +44,7 @@ class Stockmarket extends Component {
 
                         <tbody>
                         <tr>
-                            <td style={(rslts.change >= 0) ? styles.green : styles.red}>{marketChangeFormat(rslts.change)}</td>
+                            {/*<td style={(rslts.change >= 0) ? styles.green : styles.red}>{marketChangeFormat(rslts.change)}</td>*/}
                             <td>{rslts.latest_date}</td>
                             <td>{rslts.latest_val}</td>
                             <td>{rslts.benchmark_date}</td>
