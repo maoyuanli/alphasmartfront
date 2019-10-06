@@ -47,8 +47,8 @@ const filterZeroSentAndNullDescr = (articles) => {
 };
 
 const ScoreNumColorStyle = {
-    red: {color: 'red'},
-    green: {color: 'green'},
+    red: {color: 'tomato'},
+    green: {color: 'springgreen'},
     topwords_style: {'ontStyle': 'italic', 'fontFamily': 'serif', 'fontWeight': 'bold'}
 };
 

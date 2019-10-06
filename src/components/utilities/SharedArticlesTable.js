@@ -21,7 +21,7 @@ class SharedArticlesTable extends Component {
         let avg_score = avgSentScore(rslts);
 
         return (
-            <div className="table-responsive">
+            <div>
                 <h5 align="center" className="senti_score_prefix">Overall Sentiment Score is <span
                     id="avg_senti_score"
                     style={(avg_score >= 0) ? ScoreNumColorStyle.green : ScoreNumColorStyle.red}>{avg_score}</span>
@@ -42,26 +42,26 @@ class SharedArticlesTable extends Component {
                 </div>
 
 
-                <table className="table table-striped">
+                <table className="table table-hover table-dark">
                     <thead>
                     <tr>
                         <th>Title</th>
                         <th>Sentiment</th>
                         <th>Source</th>
-                        <th>Summary</th>
+                        {/*<th>Summary</th>*/}
                         <th>Publish Date</th>
                     </tr>
                     </thead>
 
                     <tbody>
                     {rslts.map((article, index) => {
-                        return (<tr key={index}>
+                        return (<tr key={index} data-toggle="tooltip" data-placement="top" data-type="primary" title={article.description} >
                                 <td><a href={article.url}>{article.title}</a></td>
                                 <td><span
                                     style={(article.sentiment >= 0) ? ScoreNumColorStyle.green : ScoreNumColorStyle.red}>{article.sentiment}</span>
                                 </td>
                                 <td>{article.source.name}</td>
-                                <td>{article.description}</td>
+                                {/*<td>{article.description}</td>*/}
                                 <td>{publishTimeCleaner(article.publishedAt)}</td>
                             </tr>
 

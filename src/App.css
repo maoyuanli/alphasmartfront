@@ -100,3 +100,18 @@ div.card:hover {
     background: lightskyblue;
     box-shadow: 10px 10px grey;
 }
+
+tr:hover span{
+    font-weight: bold;
+    font-size: large;
+}
+
+tr:hover a{
+    color: #ececf6;
+    font-weight: bold;
+    font-size: medium;
+}
+
+tr a{
+    color: orange;
+}

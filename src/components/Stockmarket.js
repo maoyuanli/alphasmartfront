@@ -27,11 +27,11 @@ class Stockmarket extends Component {
         return (
             <div>
 
-                <div className="table-responsive">
+                <div>
                     <h5>NASDAQ-100 PM Settlement Value (XQC) Movement is
                         <span style={(rslts.change >= 0) ? styles.green : styles.red}> {marketChangeFormat(rslts.change)}</span>
                     </h5>
-                    <table className="table table-striped">
+                    <table className="table table-borderless table-striped">
                         <thead>
                         <tr>
                             {/*<th>Change</th>*/}
