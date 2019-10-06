@@ -44,7 +44,6 @@ class Stockmarket extends Component {
 
                         <tbody>
                         <tr>
-                            {/*<td style={(rslts.change >= 0) ? styles.green : styles.red}>{marketChangeFormat(rslts.change)}</td>*/}
                             <td>{rslts.latest_date}</td>
                             <td>{rslts.latest_val}</td>
                             <td>{rslts.benchmark_date}</td>

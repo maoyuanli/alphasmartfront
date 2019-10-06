@@ -2,10 +2,7 @@ import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import linkedMugshot from './static/linkedin_mugshot.jpg';
 import {
-    avgSentScore,
     topWordsFormat,
-    filterZeroSentAndNullDescr,
-    ScoreNumColorStyle
 } from './utilities/utils';
 import Stockmarket from "./Stockmarket";
 import SharedNavBar from "./utilities/SharedNavBar";
@@ -46,12 +43,6 @@ class Homepage extends Component {
 
 
     render() {
-        const {articles, filterTitle} = this.state;
-        let non_zero_sent = filterZeroSentAndNullDescr(articles);
-        let filteredArticles = non_zero_sent.filter(article => article.title.toLowerCase().includes(filterTitle.toLowerCase()));
-        const rslts = filteredArticles;
-
-        let avg_score = avgSentScore(rslts);
         const goBackLinks = [
             {
                 address: '/searchnews',
@@ -61,9 +52,9 @@ class Homepage extends Component {
                 address: '/quote',
                 text: 'Top Stock Picks'
             }
-        ]
-        return (
+        ];
 
+        return (
             <div>
                 <SharedNavBar goBackLinks={goBackLinks}></SharedNavBar>
 
@@ -99,28 +90,8 @@ class Homepage extends Component {
                     </div>
                 </section>
                 <br/>
-                <div className="table-responsive">
-                    <h5 align="center" className="senti_score_prefix">Overall Sentiment Score is <span
-                        id="avg_senti_score"
-                        style={(avg_score >= 0) ? ScoreNumColorStyle.green : ScoreNumColorStyle.red}>{avg_score}</span>
-                    </h5>
-                    <div>
-                        <form id="filterDiv" className="form-inline md-form mr-auto mb-4">
-                            <input className="form-control mr-sm-2" type="search" name="filterTitle" id="filterField"
-                                   placeholder="Type Here to Filter News Title"
-                                   onChange={
-                                       event => {
-                                           this.setState(
-                                               {filterTitle: event.target.value}, () => {
-                                               }
-                                           )
-                                       }
-                                   }/>
-                        </form>
-                    </div>
 
-                    <SharedArticlesTable articles={rslts}/>
-                </div>
+                <SharedArticlesTable articles={this.state.articles}/>
             </div>
         );
     }

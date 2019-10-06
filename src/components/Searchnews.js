@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
-import {avgSentScore, filterZeroSentAndNullDescr} from './utilities/utils'
 import SharedNavBar from "./utilities/SharedNavBar";
 import SharedHeader from "./utilities/SharedHeader";
 import SharedArticlesTable from "./utilities/SharedArticlesTable";
@@ -35,26 +34,16 @@ class Searchnews extends Component {
             .then((data) => {
                 this.setState({articles: data.articles})
 
-            })
+            });
         event.preventDefault();
     }
 
 
     render() {
-
-        const styles = {
-            red: {color: 'red',},
-            green: {color: 'green'}
-        };
-
-        const raw_rslts = this.state.articles;
-        let rslts = filterZeroSentAndNullDescr(raw_rslts);
-
-        let avg_score = avgSentScore(rslts);
         const goBackLinks = [
             {
-                address:'/',
-                text:'Back to Homepage'
+                address: '/',
+                text: 'Back to Homepage'
             }
         ];
         return (
@@ -74,13 +63,7 @@ class Searchnews extends Component {
                             </button>
                         </form>
                     </div>
-
-                    <h5 align="center"><span className="table_title">Related News & Their Sentiment Scores</span>
-                    </h5>
-                    <h5 align="center" className="senti_score_prefix">Overall Sentiment Score is <span
-                        id="avg_senti_score" style={(avg_score >= 0) ? styles.green : styles.red}>{avg_score}</span>
-                    </h5>
-                   <SharedArticlesTable articles={rslts}/>
+                    <SharedArticlesTable articles={this.state.articles}/>
                 </main>
             </div>
         )
