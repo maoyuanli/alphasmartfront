@@ -1,40 +1,34 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import {marketChangeFormat} from './utilities/utils';
+import {marketChangeFormat, ScoreNumColorStyle} from './utilities/utils';
 
 class Stockmarket extends Component {
 
     render() {
 
-        const styles = {
-            red: {color: 'red'},
-            green: {color: 'green'},
-        }
-
-        if (this.props.market == null){
+        if (this.props.market == null) {
             var rslts = {
-                change:'Market Data Unavailable',
-                latest_date:'Market Data Unavailable',
-                latest_val:'Market Data Unavailable',
-                benchmark_date:'Market Data Unavailable',
-                benchmark_val:'Market Data Unavailable'
+                change: 'Market Data Unavailable',
+                latest_date: 'Market Data Unavailable',
+                latest_val: 'Market Data Unavailable',
+                benchmark_date: 'Market Data Unavailable',
+                benchmark_val: 'Market Data Unavailable'
             }
-        }else {
+        } else {
             rslts = this.props.market;
         }
 
 
         return (
             <div>
-
                 <div>
                     <h5>NASDAQ-100 PM Settlement Value (XQC) Movement is
-                        <span style={(rslts.change >= 0) ? styles.green : styles.red}> {marketChangeFormat(rslts.change)}</span>
+                        <span
+                            style={(rslts.change >= 0) ? ScoreNumColorStyle.green : ScoreNumColorStyle.red}> {marketChangeFormat(rslts.change)}</span>
                     </h5>
-                    <table className="table table-borderless table-striped">
+                    <table className="table table-hover table-dark">
                         <thead>
                         <tr>
-                            {/*<th>Change</th>*/}
                             <th>Latest Closing</th>
                             <th>Latest Value</th>
                             <th>Benchmark Closing</th>

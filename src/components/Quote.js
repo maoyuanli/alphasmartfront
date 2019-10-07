@@ -86,7 +86,7 @@ class Quote extends Component {
                                                 options={{
                                                     lineWidth: 3,
                                                     hAxis: {
-                                                        title: 'history',
+                                                        title: 'historical',
                                                         textPosition: 'none',
                                                     },
                                                     vAxis: {

@@ -107,11 +107,16 @@ tr:hover span{
 }
 
 tr:hover a{
-    color: #ececf6;
+    color: whitesmoke ;
     font-weight: bold;
     font-size: medium;
+    text-decoration: underline;
 }
 
-tr a{
+td{
+    color: orange;
+}
+
+td a{
     color: orange;
 }
