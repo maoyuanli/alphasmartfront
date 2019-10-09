@@ -46,6 +46,10 @@ class Quote extends Component {
             {
                 address: '/',
                 text: 'Back to Homepage'
+            },
+            {
+                address: '/searchnews',
+                text: 'Search News & Gauge Sentiment'
             }
         ];
 

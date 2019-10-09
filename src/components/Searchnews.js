@@ -44,6 +44,10 @@ class Searchnews extends Component {
             {
                 address: '/',
                 text: 'Back to Homepage'
+            },
+            {
+                address: '/quote',
+                text: 'Top Stock Picks'
             }
         ];
         return (
