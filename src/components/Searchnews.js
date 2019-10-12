@@ -56,7 +56,7 @@ class Searchnews extends Component {
 
                 <main role="main">
                     <SharedHeader text={"Put in Keywords, Search for News"}/>
-                    <div>
+                    <div className="d d-md-inline-flex">
                         <form onSubmit={this.submit} className="form-inline md-form mr-auto mb-4">
                             <input className="form-control mr-sm-2" type="text" name="searchFor" id="searchField"
                                    placeholder="Search Keyword"
