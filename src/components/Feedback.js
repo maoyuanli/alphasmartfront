@@ -82,7 +82,7 @@ class Feedback extends Component {
         return (
             <div className="container">
                 <header>
-                    <SharedNavBar goBackLinks={goBackLinks}></SharedNavBar>
+                    <SharedNavBar goBackLinks={goBackLinks} showFeedback={false}></SharedNavBar>
                 </header>
                 <SharedHeader text={"Leave a Message to Mao"}/>
                 <form onSubmit={this.onSubmitHandler}>

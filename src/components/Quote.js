@@ -58,7 +58,7 @@ class Quote extends Component {
             <div className="mx-auto">
 
 
-                <SharedNavBar goBackLinks={goBackLinks}></SharedNavBar>
+                <SharedNavBar goBackLinks={goBackLinks} showFeedback={true}></SharedNavBar>
 
                 <main role="main">
                     <SharedHeader text={"Top Picks of the Day"}/>

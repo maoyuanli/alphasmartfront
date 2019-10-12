@@ -52,7 +52,7 @@ class Searchnews extends Component {
         ];
         return (
             <div className="mx-auto">
-                <SharedNavBar goBackLinks={goBackLinks}></SharedNavBar>
+                <SharedNavBar goBackLinks={goBackLinks} showFeedback={true}></SharedNavBar>
 
                 <main role="main">
                     <SharedHeader text={"Put in Keywords, Search for News"}/>

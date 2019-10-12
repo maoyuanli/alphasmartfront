@@ -56,7 +56,7 @@ class Homepage extends Component {
 
         return (
             <div>
-                <SharedNavBar goBackLinks={goBackLinks}></SharedNavBar>
+                <SharedNavBar goBackLinks={goBackLinks} showFeedback={true}></SharedNavBar>
 
                 <div className="jumbotron text-center">
 

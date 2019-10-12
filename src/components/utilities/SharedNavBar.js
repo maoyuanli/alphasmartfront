@@ -4,6 +4,13 @@ import {Link} from "react-router-dom";
 
 class SharedNavBar extends Component {
     render() {
+        const show = this.props.showFeedback;
+        function showFeedback() {
+            if (show ==true) {
+                return <Link to="/feedback" className="nav-item nav-link">Feedback</Link>;
+            }
+        }
+
         const gblinks = this.props.goBackLinks;
         return (
             <div>
@@ -21,8 +28,8 @@ class SharedNavBar extends Component {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav ml-auto">
-                            <a className="nav-item nav-link" href="https://github.com/maoyuanli/">GitHub</a>
-                            <Link to="/feedback" className="nav-item nav-link">Feedback</Link>
+                            <a className="nav-item nav-link" href="https://github.com/maoyuanli/">Other Projects</a>
+                            {showFeedback()}
                         </div>
                     </div>
                 </nav>
