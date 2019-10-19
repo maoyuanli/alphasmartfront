@@ -16,7 +16,7 @@ class Quote extends Component {
     }
 
     componentDidMount() {
-        fetch('https://alphaspring.herokuapp.com/api/quote/')
+        fetch('https://alphasmartback.herokuapp.com/api/quote/')
             .then(res => res.json())
             .then((data) => {
                 this.setState({
