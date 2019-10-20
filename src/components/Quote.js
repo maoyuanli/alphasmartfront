@@ -77,9 +77,6 @@ class Quote extends Component {
                                                     <p className="display-4 align-self-end">{this.priceFormat(quote.dataset.data[0][4])}</p>
                                                     <p className="align-self-end pb-2"> vol {this.volFormat(quote.dataset.data[0][5])}</p>
                                                 </div>
-
-
-
                                             </div>
                                             <Chart
                                                 width={'380px'}

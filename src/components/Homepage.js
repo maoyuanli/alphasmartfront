@@ -36,9 +36,6 @@ class Homepage extends Component {
             .then((data) => {
                 this.setState({market: data.market_return, loading: false})
             });
-        fetch('https://alphaspring.herokuapp.com/api/quote/')
-            .then(res => res.json())
-        ;
     }
 
 
