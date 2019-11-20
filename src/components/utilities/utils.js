@@ -35,9 +35,9 @@ const marketChangeFormat = function (rawNum) {
     return (rawNum * 100).toFixed(2) + '%'
 };
 
-const filterZeroSentAndNullDescr = (articles) => {
+const filterZeroSentScore = (articles) => {
     const rslt = articles.filter((article) => {
-        if (article.sentiment !== 0 && article.description != null) {
+        if (article.sentiment !== 0 ) {
             return article;
         } else {
             return null;
@@ -57,6 +57,6 @@ module.exports = {
     publishTimeCleaner,
     topWordsFormat,
     marketChangeFormat,
-    filterZeroSentAndNullDescr,
+    filterZeroSentScore,
     ScoreNumColorStyle
 };

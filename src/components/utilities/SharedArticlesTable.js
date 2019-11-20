@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import {avgSentScore, filterZeroSentAndNullDescr, publishTimeCleaner, ScoreNumColorStyle} from "./utils";
+import {avgSentScore, filterZeroSentScore, publishTimeCleaner, ScoreNumColorStyle} from "./utils";
 
 
 class SharedArticlesTable extends Component {
@@ -15,7 +15,7 @@ class SharedArticlesTable extends Component {
 
         const filterTitle = this.state.filterTitle;
         const articles = this.props.articles;
-        let non_zero_sent = filterZeroSentAndNullDescr(articles);
+        let non_zero_sent = filterZeroSentScore(articles);
         let filteredArticles = non_zero_sent.filter(article => article.title.toLowerCase().includes(filterTitle.toLowerCase()));
         const rslts = filteredArticles;
         let avg_score = avgSentScore(rslts);
