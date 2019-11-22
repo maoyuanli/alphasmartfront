@@ -26,7 +26,7 @@ class Stockmarket extends Component {
                         <span
                             style={(rslts.change >= 0) ? ScoreNumColorStyle.green : ScoreNumColorStyle.red}> {marketChangeFormat(rslts.change)}</span>
                     </h5>
-                    <table className="table table-hover table-dark">
+                    <table className="table table-hover">
                         <thead>
                         <tr>
                             <th>Latest Closing</th>
@@ -36,7 +36,7 @@ class Stockmarket extends Component {
                         </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody id = "market_table">
                         <tr>
                             <td>{rslts.latest_date}</td>
                             <td>{rslts.latest_val}</td>

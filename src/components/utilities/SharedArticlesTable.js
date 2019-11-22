@@ -55,7 +55,7 @@ class SharedArticlesTable extends Component {
 
                     <tbody>
                     {rslts.map((article, index) => {
-                        return (<tr key={index} data-toggle="tooltip" data-placement="top" data-type="primary" title={article.description} >
+                        return (<tr id="article_table" key={index} data-toggle="tooltip" data-placement="top" data-type="primary" title={article.description} >
                                 <td><a href={article.url}>{article.title}</a></td>
                                 <td><span
                                     style={(article.sentiment >= 0) ? ScoreNumColorStyle.green : ScoreNumColorStyle.red}>{article.sentiment}</span>

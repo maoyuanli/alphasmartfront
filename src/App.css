@@ -113,14 +113,13 @@ tr:hover a{
     text-decoration: underline;
 }
 
-td{
+#article_table{
     color: orange;
 }
 
-td a{
+#article_table a{
     color: orange;
 }
-
 
 @keyframes ticker {
     0% { transform: translate3d(0, 0, 0); }
@@ -157,4 +156,9 @@ td a{
 
 #tweet_avatar{
     border-radius: 50%;
+}
+
+#market_table{
+    color: #494f54;
+    font-weight: bold;
 }
