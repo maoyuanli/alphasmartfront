@@ -136,6 +136,7 @@ td a{
     background-color: white;
     color: black;
     font-weight: bold;
+    font-size: large;
 }
 .ticker-move {
     display: inline-block;

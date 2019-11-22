@@ -13,8 +13,9 @@ class Tweet extends Component {
 
 
     componentDidMount() {
-        fetch('' +
-            'http://localhost:8080/api/tweet/'
+        fetch(
+            'https://alphaspring.herokuapp.com/api/tweet/'
+            // 'http://localhost:8080/api/tweet/'
         )
             .then(res => res.json())
             .then((data) => {
@@ -22,7 +23,6 @@ class Tweet extends Component {
                     tweets: data.tweets,
                 })
             });
-        console.log(this.state.tweets)
     }
 
     render() {
@@ -35,13 +35,13 @@ class Tweet extends Component {
                         <div className="ticker-move">
                             {tweets.map((tweet, index) => {
                                 return (
-                                    <div className="ticker-item">
+                                    <div key={index} className="ticker-item">
                                         <div>
-                                            <p>
+                                            <p >
                                                 <img id="tweet_avatar" src={tweet.user.profileImageUrl} alt="Avatar"></img>
-                                                <spam>@{tweet.user.screenName} : </spam>
-                                                <span><a href={tweet.urlEntities.expandedURL}>{tweet.text}</a></span>
-                                                <span>{tweet.createdAt}</span>
+                                                <span>@{tweet.user.screenName} : </span>
+                                                <span> {tweet.text} </span>
+                                                <span> | {tweet.createdAt} </span>
                                             </p>
                                         </div>
                                     </div>
