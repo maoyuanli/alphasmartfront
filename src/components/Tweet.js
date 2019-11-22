@@ -30,12 +30,13 @@ class Tweet extends Component {
 
         return (
             <div>
-                <h5 align="center" className="senti_score_prefix">What the market is talking about
-                </h5>
-                <div className="row">
+                <h5 align="center" className="senti_score_prefix">What the market is talking about</h5>
+                <div className="tcontainer">
+                    <div className="ticker-wrap">
+                        <div className="ticker-move">
                     {tweets.map((tweet, index) => {
                         return (
-                            <div className="col-sm-6">
+                            <div className="ticker-item">
                                 <div className="card">
                                     <div className="card-body">
                                         <h5 className="card-title">@{tweet.user.screenName}</h5>
@@ -46,6 +47,8 @@ class Tweet extends Component {
                             </div>
                         )
                     })}
+                        </div>
+                    </div>
                 </div>
             </div>
         )
