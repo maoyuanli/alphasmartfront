@@ -4,6 +4,7 @@ import SharedNavBar from "./utilities/SharedNavBar";
 import {Chart} from "react-google-charts";
 import WaitLoader from './utilities/WaitLoader';
 import SharedHeader from "./utilities/SharedHeader";
+import Tweet from "./Tweet";
 
 class Quote extends Component {
 
@@ -16,7 +17,10 @@ class Quote extends Component {
     }
 
     componentDidMount() {
-        fetch('https://alphasmartback.herokuapp.com/api/quote/')
+        fetch(
+            // 'https://alphasmartback.herokuapp.com/api/quote/'
+            'http://localhost:8080/api/quote/'
+        )
             .then(res => res.json())
             .then((data) => {
                 this.setState({
@@ -102,6 +106,11 @@ class Quote extends Component {
                             </div>
                         </div>
                     </div>
+                    <section>
+                        <div className="container">
+                            <Tweet />
+                        </div>
+                    </section>
                 </main>
                 <footer className="footer mt-auto py-3"><cite title="Source Title">Disclaimer: </cite> This website is
                     for demostrations purpose only. It does not offer investment advice and nothing in them should be

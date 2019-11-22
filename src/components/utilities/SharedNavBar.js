@@ -6,7 +6,7 @@ class SharedNavBar extends Component {
     render() {
         const show = this.props.showFeedback;
         function showFeedback() {
-            if (show ==true) {
+            if (show ===true) {
                 return <Link to="/feedback" className="nav-item nav-link">Feedback</Link>;
             }
         }
