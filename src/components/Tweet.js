@@ -26,27 +26,27 @@ class Tweet extends Component {
     }
 
     render() {
-        const tweets = this.state.tweets.slice(0,10);
+        const tweets = this.state.tweets.slice(0, 10);
 
         return (
             <div>
-                <h5 align="center" className="senti_score_prefix">What the market is talking about</h5>
                 <div className="tcontainer">
                     <div className="ticker-wrap">
                         <div className="ticker-move">
-                    {tweets.map((tweet, index) => {
-                        return (
-                            <div className="ticker-item">
-                                <div className="card">
-                                    <div className="card-body">
-                                        <h5 className="card-title">@{tweet.user.screenName}</h5>
-                                        <a>{tweet.createdAt}</a>
-                                        <p className="card-text"><a href={tweet.urlEntities.url}>{tweet.text}</a></p>
+                            {tweets.map((tweet, index) => {
+                                return (
+                                    <div className="ticker-item">
+                                        <div>
+                                            <p>
+                                                <img id="tweet_avatar" src={tweet.user.profileImageUrl} alt="Avatar"></img>
+                                                <spam>@{tweet.user.screenName} : </spam>
+                                                <span><a href={tweet.urlEntities.expandedURL}>{tweet.text}</a></span>
+                                                <span>{tweet.createdAt}</span>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        )
-                    })}
+                                )
+                            })}
                         </div>
                     </div>
                 </div>

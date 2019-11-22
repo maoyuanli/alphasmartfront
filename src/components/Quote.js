@@ -69,11 +69,15 @@ class Quote extends Component {
                     <WaitLoader loading={this.state.loading}/>
                     <div className="container">
                         <div className="row justify-content-center">
+                            <section>
+                                <div id="news_ticker" className="container">
+                                    <Tweet />
+                                </div>
+                            </section>
                             <div className="card-columns">
                                 {rslts.map((quote, index) => {
                                     return (
-                                        // https://mdbootstrap.com/plugins/jquery/extended-cards/
-                                        <div className="card chart-card" key={index}>
+                                        <div id="chart_card" className="card chart-card" key={index}>
                                             <div className="card-body pb-0">
                                                 <h4 className="card-title font-weight-bold">{quote.dataset.name}</h4>
                                                 <p className="card-text mb-4">{quote.dataset.newest_available_date}</p>
@@ -106,11 +110,7 @@ class Quote extends Component {
                             </div>
                         </div>
                     </div>
-                    <section>
-                        <div className="container">
-                            <Tweet />
-                        </div>
-                    </section>
+
                 </main>
                 <footer className="footer mt-auto py-3"><cite title="Source Title">Disclaimer: </cite> This website is
                     for demostrations purpose only. It does not offer investment advice and nothing in them should be
