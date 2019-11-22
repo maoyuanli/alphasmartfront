@@ -26,34 +26,27 @@ class Tweet extends Component {
     }
 
     render() {
-        const tweets = this.state.tweets;
+        const tweets = this.state.tweets.slice(0,10);
 
         return (
             <div>
                 <h5 align="center" className="senti_score_prefix">What the market is talking about
                 </h5>
-
-
-                <table className="table table-hover table-dark">
-                    <thead>
-                    <tr>
-                        <th>From</th>
-                        <th>Tweet</th>
-
-                    </tr>
-                    </thead>
-
-                    <tbody>
+                <div className="row">
                     {tweets.map((tweet, index) => {
-                        return (<tr key={index} data-toggle="tooltip" data-placement="top" data-type="primary" title={tweet.createdAt} >
-                                <td>@{tweet.user.screenName}</td>
-                                <td><a href={tweet.url}>{tweet.text}</a></td>
-                            </tr>
-
+                        return (
+                            <div className="col-sm-6">
+                                <div className="card">
+                                    <div className="card-body">
+                                        <h5 className="card-title">@{tweet.user.screenName}</h5>
+                                        <a>{tweet.createdAt}</a>
+                                        <p className="card-text"><a href={tweet.urlEntities.url}>{tweet.text}</a></p>
+                                    </div>
+                                </div>
+                            </div>
                         )
                     })}
-                    </tbody>
-                </table>
+                </div>
             </div>
         )
     }
