@@ -40,8 +40,8 @@ class Tweet extends Component {
                                             <p >
                                                 <img id="tweet_avatar" src={tweet.user.profileImageUrlHttps} alt="Avatar"></img>
                                                 <span>@{tweet.user.screenName} : </span>
-                                                <span> {tweet.text} </span>
-                                                <span> | {tweet.createdAt} </span>
+                                                <span> {tweet.text.split('https')[0]} </span>
+                                                {/*<span> | {tweet.createdAt} </span>*/}
                                             </p>
                                         </div>
                                     </div>
