@@ -26,7 +26,7 @@ class Tweet extends Component {
     }
 
     render() {
-        const tweets = this.state.tweets.slice(0, 10);
+        const tweets = this.state.tweets.slice(0, 30);
 
         return (
             <div>

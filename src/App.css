@@ -133,7 +133,7 @@ tr:hover a{
     width: 100%;
     padding-left: 100%;
     background-color: white;
-    color: darkblue;
+    color: navy;
     font-weight: bold;
     font-size: large;
 }
@@ -144,7 +144,7 @@ tr:hover a{
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     animation-name: ticker;
-    animation-duration: 120s;
+    animation-duration: 360s;
 }
 .ticker-move:hover{
     animation-play-state: paused;
