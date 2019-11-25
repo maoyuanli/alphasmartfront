@@ -5,6 +5,7 @@ import {Chart} from "react-google-charts";
 import WaitLoader from './utilities/WaitLoader';
 import SharedHeader from "./utilities/SharedHeader";
 import Tweet from "./Tweet";
+import Trade from "./Trade";
 
 class Quote extends Component {
 
@@ -116,6 +117,11 @@ class Quote extends Component {
                     for demostrations purpose only. It does not offer investment advice and nothing in them should be
                     construed as investment advice.
                 </footer>
+                <section>
+                    <div id="trade" className="container">
+                        <Trade />
+                    </div>
+                </section>
             </div>
         )
     }
