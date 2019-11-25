@@ -17,10 +17,6 @@ class Trade extends Component {
             orderVolumn: '',
             existingOrders: []
         };
-        this.options = {
-            defaultSortName: 'id',  // default sort column name
-            defaultSortOrder: 'desc'  // default sort order
-        };
     }
 
     onChangeTickerHandler = (e) => {
@@ -57,30 +53,26 @@ class Trade extends Component {
         const orderPrice = this.state.orderPrice;
         const orderVolumn = this.state.orderVolumn;
         const feedbackData = {
-                ticker: ticker,
-                companyName: companyName,
-                orderType: orderType,
-                orderPrice: orderPrice,
-                orderVolumn: orderVolumn,
+            ticker: ticker,
+            companyName: companyName,
+            orderType: orderType,
+            orderPrice: orderPrice,
+            orderVolumn: orderVolumn,
         };
         console.log(feedbackData);
         axios.defaults.xsrfHeaderName = "X-CSRFToken";
         axios.defaults.xsrfCookieName = "csrftoken";
         axios.post('' +
-            'http://localhost:8080/api/setorder/'
-            , feedbackData);
-            // .then((data) => {
-            //     this.setState({existingOrders: data})
-            // })
-            // .catch(function (error) {
-            //     console.log(error);
-            // });
-        this.setState({ticker: '', companyName: '', orderType: '', orderPrice: '',orderVolumn:''})
+            // 'http://localhost:8080/api/setorder/'
+            'https://alphaspring.herokuapp.com/api/setorder/'
+            , feedbackData).then(this.fetchTable);
+        this.setState({ticker: '', companyName: '', orderType: '', orderPrice: '', orderVolumn: ''})
     };
 
-    UNSAFE_componentWillUpdate() {
+    fetchTable = () =>{
         fetch(
-            'http://localhost:8080/api/getorder/'
+            // 'http://localhost:8080/api/getorder/'
+            'https://alphaspring.herokuapp.com/api/getorder/'
         )
             .then(res => res.json())
             .then((data) => {
@@ -90,13 +82,24 @@ class Trade extends Component {
             });
     }
 
+    componentDidMount() {
+        this.fetchTable();
+    }
+
     render() {
+        const defaultSorted = [{
+            dataField: 'id',
+            order: 'desc' // desc or asc
+        }];
 
         const existingOrders = this.state.existingOrders;
         const columns = [
             {dataField: "id", text:'Order ID', sort:true},
             {dataField: "ticker", text:'Ticker'},
             {dataField: "companyName", text:'Company Name'},
+            {dataField: "orderType", text:'Order Type'},
+            {dataField: "orderPrice", text:'Order Price'},
+            {dataField: "orderVolumn", text:'Order Volumn'},
         ]
         return (
             <div className="container">
@@ -133,7 +136,7 @@ class Trade extends Component {
                                onChange={this.onChangeOrderVolumnHandler}
                                placeholder="5000" />
                     </div>
-                    <Popup trigger={<button id="subBtn" className="btn btn-success" onClick={this.handleFeedbackSuccess}>Submit</button>} modal
+                    <Popup trigger={<button id="subBtn" className="btn btn-success" onClick={this.onSubmitHandler}>Submit</button>} modal
                            closeOnDocumentClick>
                         <div id="SuccessMsg" className="alert alert-light" role="alert">
                             <h4 className="alert-heading">Thank you for your feedback!</h4>
@@ -141,37 +144,8 @@ class Trade extends Component {
                         </div>
                     </Popup>
 
-                    <BootstrapTable keyField='id' data = {existingOrders} columns={columns} options={this.options} />
+                    <BootstrapTable keyField='id' data = {existingOrders} columns={columns} defaultSorted={defaultSorted} />
 
-                    {/*<table className="table table-hover table-dark">*/}
-                    {/*    <thead>*/}
-                    {/*    <tr>*/}
-                    {/*        <th>Order ID</th>*/}
-                    {/*        <th>Ticker</th>*/}
-                    {/*        <th>Company Name</th>*/}
-                    {/*        <th>Order Type</th>*/}
-                    {/*        <th>Order Price</th>*/}
-                    {/*        <th>Order Volumn</th>*/}
-                    {/*        <th>Order Datetime</th>*/}
-                    {/*    </tr>*/}
-                    {/*    </thead>*/}
-
-                    {/*    <tbody>*/}
-                    {/*    {existingOrders.map((order, index) => {*/}
-                    {/*        return (<tr id="article_table" key={index} data-placement="top" data-type="primary" >*/}
-                    {/*                <td>{order.id}</td>*/}
-                    {/*                <td>{order.ticker}</td>*/}
-                    {/*                <td>{order.companyName}</td>*/}
-                    {/*                <td>{order.orderType}</td>*/}
-                    {/*                <td>{order.orderPrice}</td>*/}
-                    {/*                <td>{order.orderVolumn}</td>*/}
-                    {/*                <td>{order.createdDate}</td>*/}
-                    {/*            </tr>*/}
-
-                    {/*        )*/}
-                    {/*    })}*/}
-                    {/*    </tbody>*/}
-                    {/*</table>*/}
                 </form>
             </div>
         )
