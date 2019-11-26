@@ -16,6 +16,7 @@ class Trade extends Component {
             orderVolumn: '',
             existingOrders: [],
             orderPriceDisabled : false,
+            submitButtonDisabled: true
         };
     }
 
@@ -47,6 +48,11 @@ class Trade extends Component {
         this.setState({
             orderVolumn: e.target.value
         });
+        if(this.state.ticker != null && this.state.orderType != null && this.state.orderVolumn != null){
+            this.setState({
+                submitButtonDisabled: false
+            });
+        }
     };
 
     onSubmitHandler = (e) => {
@@ -69,7 +75,7 @@ class Trade extends Component {
             // 'http://localhost:8080/api/setorder/'
             'https://alphaspring.herokuapp.com/api/setorder/'
             , feedbackData).then(this.fetchTable);
-        this.setState({ticker: '', companyName: '', orderType: '', orderPrice: '', orderVolumn: ''})
+        this.setState({ticker: '', companyName: '', orderType: '', orderPrice: '', orderVolumn: '', submitButtonDisabled: true})
     };
 
     fetchTable = () => {
@@ -115,8 +121,7 @@ class Trade extends Component {
                         <div className="form-row">
                             <div className="form-group col-md-6">
                                 <label className="input-group-text" htmlFor="inputGroupSelect01">Stock Name</label>
-                                <select className="custom-select" id="inputGroupSelect01" value={this.state.ticker}
-                                        onChange={this.onChangeTickerHandler}>
+                                <select className="custom-select" id="inputGroupSelect01" value={this.state.ticker} onChange={this.onChangeTickerHandler}>
                                     <option value ="">Choose...</option>
                                     <option value="ABN AMRO BANK N.V. (ABN)">ABN AMRO BANK N.V. (ABN)</option>
                                     <option value="ADYEN (ADYEN)">ADYEN (ADYEN)</option>
@@ -129,8 +134,7 @@ class Trade extends Component {
                             </div>
                             <div className="form-group col-md-6">
                                 <label className="input-group-text" htmlFor="inputGroupSelect01">Order Type</label>
-                                <select className="custom-select" id="inputGroupSelect01" value={this.state.orderType}
-                                        onChange={this.onChangeOrderTypeHandler}>
+                                <select className="custom-select" id="inputGroupSelect01" value={this.state.orderType} onChange={this.onChangeOrderTypeHandler}>
                                     <option value ="">Choose...</option>
                                     <option value="Limited Buy">Limited Buy</option>
                                     <option value="Limited Sell">Limited Sell</option>
@@ -155,7 +159,7 @@ class Trade extends Component {
                                        placeholder="Enter"/>
                             </div>
                         </div>
-                        <button type="submit" id="subBtn" className="btn btn-success"  onClick={this.onSubmitHandler}>Submit Order</button>
+                        <button disabled={this.state.submitButtonDisabled} type="submit" id="subBtn" className="btn btn-success"  onClick={this.onSubmitHandler}>Submit Order</button>
                         <hr/>
                         <BootstrapTable bootstrap4={true} classes="table-striped table-dark" keyField='id'
                                         data={existingOrders}
