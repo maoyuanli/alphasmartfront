@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios';
 import Popup from 'reactjs-popup';
-import SharedHeader from "./utilities/SharedHeader";
 import BootstrapTable from 'react-bootstrap-table-next';
 
 
@@ -69,7 +68,7 @@ class Trade extends Component {
         this.setState({ticker: '', companyName: '', orderType: '', orderPrice: '', orderVolumn: ''})
     };
 
-    fetchTable = () =>{
+    fetchTable = () => {
         fetch(
             // 'http://localhost:8080/api/getorder/'
             'https://alphaspring.herokuapp.com/api/getorder/'
@@ -94,67 +93,76 @@ class Trade extends Component {
 
         const existingOrders = this.state.existingOrders;
         const columns = [
-            {dataField: "id", text:'Order ID', sort:true},
-            {dataField: "ticker", text:'Ticker'},
-            {dataField: "companyName", text:'Company Name'},
-            {dataField: "orderType", text:'Order Type'},
-            {dataField: "orderPrice", text:'Order Price'},
-            {dataField: "orderVolumn", text:'Order Volumn'},
+            {dataField: "id", text: 'Order ID', sort: true},
+            {dataField: "ticker", text: 'Stock Name'},
+            // {dataField: "companyName", text:'Company Name'},
+            {dataField: "orderType", text: 'Order Type'},
+            {dataField: "orderPrice", text: 'Order Price'},
+            {dataField: "orderVolumn", text: 'Order Volumn'},
         ];
 
         return (
             <div className="container">
-                <div>
-                    <h3>Place Your Order</h3>
+                <div id="order_form" className="jumbotron text-center blue-grey lighten-5">
+
+                    <h3 className="display-5">Place Your Order</h3>
+
+                    <form onSubmit={this.onSubmitHandler}>
+                        <div className="form-row">
+                            <div className="form-group col-md-6">
+                                <label className="input-group-text" htmlFor="inputGroupSelect01">Stock Name</label>
+                                <select className="custom-select" id="inputGroupSelect01" value={this.state.ticker}
+                                        onChange={this.onChangeTickerHandler}>
+                                    <option selected>Choose...</option>
+                                    <option value="ABN AMRO BANK N.V. (ABN)">ABN AMRO BANK N.V. (ABN)</option>
+                                    <option value="ADYEN (ADYEN)">ADYEN (ADYEN)</option>
+                                    <option value="ING GROEP N.V. (INGA)">ING GROEP N.V. (INGA)</option>
+                                    <option value="KPN KON (KPN)">KPN KON (KPN)</option>
+                                    <option value="ROYAL DUTCH SHELLA (RDSA)">ROYAL DUTCH SHELLA (RDSA)</option>
+                                    <option value="BNP PARIBAS ACT.A (BNP)">BNP PARIBAS ACT.A (BNP)</option>
+                                </select>
+                            </div>
+                            <div className="form-group col-md-6">
+                                <label className="input-group-text" htmlFor="inputGroupSelect01">Order Type</label>
+                                <select className="custom-select" id="inputGroupSelect01" value={this.state.orderType}
+                                        onChange={this.onChangeOrderTypeHandler}>
+                                    <option selected>Choose...</option>
+                                    <option value="Market Buy">Market Buy</option>
+                                    <option value="Market Sell">Market Sell</option>
+                                    <option value="Limited Buy">Limited Buy</option>
+                                    <option value="Limited Sell">Limited Sell</option>
+                                </select>
+                            </div>
+                            <div className="form-group col-md-6">
+                                <label className="input-group-text" htmlFor="inputGroupSelect01">Order Price</label>
+                                <input type="text" className="form-control" name="orderPrice"
+                                       value={this.state.orderPrice}
+                                       onChange={this.onChangeOrderPriceHandler}
+                                       placeholder="Enter"/>
+                            </div>
+                            <div className="form-group col-md-6">
+                                <label className="input-group-text" htmlFor="inputGroupSelect01">Order Volumn</label>
+                                <input type="text" className="form-control" name="orderVolumn"
+                                       value={this.state.orderVolumn}
+                                       onChange={this.onChangeOrderVolumnHandler}
+                                       placeholder="Enter"/>
+                            </div>
+                        </div>
+
+                        <Popup trigger={<button id="subBtn" className="btn btn-success"
+                                                onClick={this.onSubmitHandler}>Submit Order</button>} modal
+                               closeOnDocumentClick>
+                            <div id="SuccessMsg" className="alert alert-light" role="alert">
+                                <h4 className="alert-heading">Order Sumbmission Success!</h4>
+                                <hr className="new1"/>
+                            </div>
+                        </Popup>
+                        <hr/>
+                        <BootstrapTable bootstrap4={true} classes="table-striped table-dark" keyField='id' data={existingOrders}
+                                        columns={columns} defaultSorted={defaultSorted}/>
+
+                    </form>
                 </div>
-
-
-                <form onSubmit={this.onSubmitHandler}>
-                    <div className="row d-flex-row">
-                        <div className="form-group">
-                            <label>Ticker</label>
-                            <input type="text" className="form-control" name="ticker" value={this.state.ticker}
-                                   onChange={this.onChangeTickerHandler}
-                                   placeholder="ABN"/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleFormControlTextarea1">Company Name</label>
-                            <input type="companyName" className="form-control" name="companyName" value={this.state.companyName}
-                                   onChange={this.onChangeCompanyNameHandler}
-                                   placeholder="ABN AMRO BANK N.V."/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleFormControlTextarea1">Order Type</label>
-                            <input type="text" className="form-control" name="orderType" value={this.state.orderType}
-                                   onChange={this.onChangeOrderTypeHandler}
-                                   placeholder="Market"/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleFormControlTextarea1">Order Price</label>
-                            <input type="text" className="form-control" name="orderPrice" value={this.state.orderPrice}
-                                   onChange={this.onChangeOrderPriceHandler}
-                                   placeholder="10.55" />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="exampleFormControlTextarea1">Order Volumn</label>
-                            <input type="text" className="form-control" name="orderVolumn" value={this.state.orderVolumn}
-                                   onChange={this.onChangeOrderVolumnHandler}
-                                   placeholder="5000" />
-                        </div>
-                    </div>
-
-
-                    <Popup trigger={<button id="subBtn" className="btn btn-success" onClick={this.onSubmitHandler}>Submit Order</button>} modal
-                           closeOnDocumentClick>
-                        <div id="SuccessMsg" className="alert alert-light" role="alert">
-                            <h4 className="alert-heading">Order Sumbmission Success!</h4>
-                            <hr className="new1" />
-                        </div>
-                    </Popup>
-
-                    <BootstrapTable bootstrap4={true} classes="table-striped" keyField='id' data = {existingOrders} columns={columns} defaultSorted={defaultSorted} />
-
-                </form>
             </div>
         )
     }
