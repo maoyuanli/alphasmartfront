@@ -117,11 +117,9 @@ class Quote extends Component {
                     for demostrations purpose only. It does not offer investment advice and nothing in them should be
                     construed as investment advice.
                 </footer>
-                <section>
-                    <div id="trade" className="container">
-                        <Trade />
-                    </div>
-                </section>
+
+                <Trade />
+
             </div>
         )
     }

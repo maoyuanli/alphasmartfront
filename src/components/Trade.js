@@ -58,7 +58,6 @@ class Trade extends Component {
             orderPrice: orderPrice,
             orderVolumn: orderVolumn,
         };
-        console.log(feedbackData);
         axios.defaults.xsrfHeaderName = "X-CSRFToken";
         axios.defaults.xsrfCookieName = "csrftoken";
         axios.post('' +
@@ -95,25 +94,24 @@ class Trade extends Component {
         const columns = [
             {dataField: "id", text: 'Order ID', sort: true},
             {dataField: "ticker", text: 'Stock Name'},
-            // {dataField: "companyName", text:'Company Name'},
             {dataField: "orderType", text: 'Order Type'},
             {dataField: "orderPrice", text: 'Order Price'},
             {dataField: "orderVolumn", text: 'Order Volumn'},
+            {dataField: "createdDate", text: 'Time Received'}
         ];
 
         return (
-            <div className="container">
-                <div id="order_form" className="jumbotron text-center blue-grey lighten-5">
-
-                    <h3 className="display-5">Place Your Order</h3>
-
+            <div className="container mx-auto">
+                    <hr/>
+                    <h3 className="display-5">Place Order</h3>
+                    <hr/>
                     <form onSubmit={this.onSubmitHandler}>
                         <div className="form-row">
                             <div className="form-group col-md-6">
                                 <label className="input-group-text" htmlFor="inputGroupSelect01">Stock Name</label>
                                 <select className="custom-select" id="inputGroupSelect01" value={this.state.ticker}
                                         onChange={this.onChangeTickerHandler}>
-                                    <option selected>Choose...</option>
+                                    <option value>Choose...</option>
                                     <option value="ABN AMRO BANK N.V. (ABN)">ABN AMRO BANK N.V. (ABN)</option>
                                     <option value="ADYEN (ADYEN)">ADYEN (ADYEN)</option>
                                     <option value="ING GROEP N.V. (INGA)">ING GROEP N.V. (INGA)</option>
@@ -126,7 +124,7 @@ class Trade extends Component {
                                 <label className="input-group-text" htmlFor="inputGroupSelect01">Order Type</label>
                                 <select className="custom-select" id="inputGroupSelect01" value={this.state.orderType}
                                         onChange={this.onChangeOrderTypeHandler}>
-                                    <option selected>Choose...</option>
+                                    <option value>Choose...</option>
                                     <option value="Market Buy">Market Buy</option>
                                     <option value="Market Sell">Market Sell</option>
                                     <option value="Limited Buy">Limited Buy</option>
@@ -135,14 +133,14 @@ class Trade extends Component {
                             </div>
                             <div className="form-group col-md-6">
                                 <label className="input-group-text" htmlFor="inputGroupSelect01">Order Price</label>
-                                <input type="text" className="form-control" name="orderPrice"
+                                <input type="number" className="form-control" name="orderPrice"
                                        value={this.state.orderPrice}
                                        onChange={this.onChangeOrderPriceHandler}
                                        placeholder="Enter"/>
                             </div>
                             <div className="form-group col-md-6">
                                 <label className="input-group-text" htmlFor="inputGroupSelect01">Order Volumn</label>
-                                <input type="text" className="form-control" name="orderVolumn"
+                                <input type="number" className="form-control" name="orderVolumn"
                                        value={this.state.orderVolumn}
                                        onChange={this.onChangeOrderVolumnHandler}
                                        placeholder="Enter"/>
@@ -154,15 +152,13 @@ class Trade extends Component {
                                closeOnDocumentClick>
                             <div id="SuccessMsg" className="alert alert-light" role="alert">
                                 <h4 className="alert-heading">Order Sumbmission Success!</h4>
-                                <hr className="new1"/>
                             </div>
                         </Popup>
                         <hr/>
-                        <BootstrapTable bootstrap4={true} classes="table-striped table-dark" keyField='id' data={existingOrders}
+                        <BootstrapTable bootstrap4={true} classes="table-striped table-dark" keyField='id'
+                                        data={existingOrders}
                                         columns={columns} defaultSorted={defaultSorted}/>
-
                     </form>
-                </div>
             </div>
         )
     }
