@@ -100,51 +100,59 @@ class Trade extends Component {
             {dataField: "orderType", text:'Order Type'},
             {dataField: "orderPrice", text:'Order Price'},
             {dataField: "orderVolumn", text:'Order Volumn'},
-        ]
+        ];
+
         return (
             <div className="container">
-                <SharedHeader text={"Please Place Your Order"}/>
+                <div>
+                    <h3>Place Your Order</h3>
+                </div>
+
 
                 <form onSubmit={this.onSubmitHandler}>
-                    <div className="form-group">
-                        <label>ticker</label>
-                        <input type="text" className="form-control" name="ticker" value={this.state.ticker}
-                               onChange={this.onChangeTickerHandler}
-                               placeholder="ABN"/>
+                    <div className="row d-flex-row">
+                        <div className="form-group">
+                            <label>Ticker</label>
+                            <input type="text" className="form-control" name="ticker" value={this.state.ticker}
+                                   onChange={this.onChangeTickerHandler}
+                                   placeholder="ABN"/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="exampleFormControlTextarea1">Company Name</label>
+                            <input type="companyName" className="form-control" name="companyName" value={this.state.companyName}
+                                   onChange={this.onChangeCompanyNameHandler}
+                                   placeholder="ABN AMRO BANK N.V."/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="exampleFormControlTextarea1">Order Type</label>
+                            <input type="text" className="form-control" name="orderType" value={this.state.orderType}
+                                   onChange={this.onChangeOrderTypeHandler}
+                                   placeholder="Market"/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="exampleFormControlTextarea1">Order Price</label>
+                            <input type="text" className="form-control" name="orderPrice" value={this.state.orderPrice}
+                                   onChange={this.onChangeOrderPriceHandler}
+                                   placeholder="10.55" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="exampleFormControlTextarea1">Order Volumn</label>
+                            <input type="text" className="form-control" name="orderVolumn" value={this.state.orderVolumn}
+                                   onChange={this.onChangeOrderVolumnHandler}
+                                   placeholder="5000" />
+                        </div>
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="exampleFormControlTextarea1">companyName</label>
-                        <input type="companyName" className="form-control" name="companyName" value={this.state.companyName}
-                               onChange={this.onChangeCompanyNameHandler}
-                               placeholder="ABN AMRO BANK N.V."/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="exampleFormControlTextarea1">orderType</label>
-                        <input type="text" className="form-control" name="orderType" value={this.state.orderType}
-                               onChange={this.onChangeOrderTypeHandler}
-                               placeholder="Market"/>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="exampleFormControlTextarea1">orderPrice</label>
-                        <input type="text" className="form-control" name="orderPrice" value={this.state.orderPrice}
-                                  onChange={this.onChangeOrderPriceHandler}
-                                  placeholder="10.55" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="exampleFormControlTextarea1">orderVolumn</label>
-                        <input type="text" className="form-control" name="orderVolumn" value={this.state.orderVolumn}
-                               onChange={this.onChangeOrderVolumnHandler}
-                               placeholder="5000" />
-                    </div>
-                    <Popup trigger={<button id="subBtn" className="btn btn-success" onClick={this.onSubmitHandler}>Submit</button>} modal
+
+
+                    <Popup trigger={<button id="subBtn" className="btn btn-success" onClick={this.onSubmitHandler}>Submit Order</button>} modal
                            closeOnDocumentClick>
                         <div id="SuccessMsg" className="alert alert-light" role="alert">
-                            <h4 className="alert-heading">Thank you for your feedback!</h4>
+                            <h4 className="alert-heading">Order Sumbmission Success!</h4>
                             <hr className="new1" />
                         </div>
                     </Popup>
 
-                    <BootstrapTable keyField='id' data = {existingOrders} columns={columns} defaultSorted={defaultSorted} />
+                    <BootstrapTable bootstrap4={true} classes="table-striped" keyField='id' data = {existingOrders} columns={columns} defaultSorted={defaultSorted} />
 
                 </form>
             </div>
