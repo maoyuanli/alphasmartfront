@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios';
-import Popup from 'reactjs-popup';
+// import Popup from 'reactjs-popup';
 import BootstrapTable from 'react-bootstrap-table-next';
 
 
@@ -14,7 +14,8 @@ class Trade extends Component {
             orderType: '',
             orderPrice: '',
             orderVolumn: '',
-            existingOrders: []
+            existingOrders: [],
+            orderPriceDisabled : false,
         };
     }
 
@@ -23,15 +24,19 @@ class Trade extends Component {
             ticker: e.target.value
         });
     };
-    onChangeCompanyNameHandler = (e) => {
-        this.setState({
-            companyName: e.target.value
-        });
-    };
     onChangeOrderTypeHandler = (e) => {
         this.setState({
             orderType: e.target.value
         });
+        if(e.target.value.includes('Market')){
+            this.setState({
+                orderPriceDisabled: true
+            });
+        }else {
+            this.setState({
+                orderPriceDisabled: false
+            });
+        }
     };
     onChangeOrderPriceHandler = (e) => {
         this.setState({
@@ -100,6 +105,7 @@ class Trade extends Component {
             {dataField: "createdDate", text: 'Time Received'}
         ];
 
+
         return (
             <div className="container mx-auto">
                     <hr/>
@@ -111,7 +117,7 @@ class Trade extends Component {
                                 <label className="input-group-text" htmlFor="inputGroupSelect01">Stock Name</label>
                                 <select className="custom-select" id="inputGroupSelect01" value={this.state.ticker}
                                         onChange={this.onChangeTickerHandler}>
-                                    <option value>Choose...</option>
+                                    <option value ="">Choose...</option>
                                     <option value="ABN AMRO BANK N.V. (ABN)">ABN AMRO BANK N.V. (ABN)</option>
                                     <option value="ADYEN (ADYEN)">ADYEN (ADYEN)</option>
                                     <option value="ING GROEP N.V. (INGA)">ING GROEP N.V. (INGA)</option>
@@ -119,25 +125,28 @@ class Trade extends Component {
                                     <option value="ROYAL DUTCH SHELLA (RDSA)">ROYAL DUTCH SHELLA (RDSA)</option>
                                     <option value="BNP PARIBAS ACT.A (BNP)">BNP PARIBAS ACT.A (BNP)</option>
                                 </select>
+
                             </div>
                             <div className="form-group col-md-6">
                                 <label className="input-group-text" htmlFor="inputGroupSelect01">Order Type</label>
                                 <select className="custom-select" id="inputGroupSelect01" value={this.state.orderType}
                                         onChange={this.onChangeOrderTypeHandler}>
-                                    <option value>Choose...</option>
-                                    <option value="Market Buy">Market Buy</option>
-                                    <option value="Market Sell">Market Sell</option>
+                                    <option value ="">Choose...</option>
                                     <option value="Limited Buy">Limited Buy</option>
                                     <option value="Limited Sell">Limited Sell</option>
+                                    <option value="Market Buy">Market Buy</option>
+                                    <option value="Market Sell">Market Sell</option>
                                 </select>
+
                             </div>
                             <div className="form-group col-md-6">
-                                <label className="input-group-text" htmlFor="inputGroupSelect01">Order Price</label>
+                                <label className="input-group-text" htmlFor="inputGroupSelect01" >Order Price</label>
                                 <input type="number" className="form-control" name="orderPrice"
-                                       value={this.state.orderPrice}
+                                       value={this.state.orderPrice} disabled = {this.state.orderPriceDisabled ? true : null}
                                        onChange={this.onChangeOrderPriceHandler}
                                        placeholder="Enter"/>
                             </div>
+
                             <div className="form-group col-md-6">
                                 <label className="input-group-text" htmlFor="inputGroupSelect01">Order Volumn</label>
                                 <input type="number" className="form-control" name="orderVolumn"
@@ -146,14 +155,7 @@ class Trade extends Component {
                                        placeholder="Enter"/>
                             </div>
                         </div>
-
-                        <Popup trigger={<button id="subBtn" className="btn btn-success"
-                                                onClick={this.onSubmitHandler}>Submit Order</button>} modal
-                               closeOnDocumentClick>
-                            <div id="SuccessMsg" className="alert alert-light" role="alert">
-                                <h4 className="alert-heading">Order Sumbmission Success!</h4>
-                            </div>
-                        </Popup>
+                        <button type="submit" id="subBtn" className="btn btn-success"  onClick={this.onSubmitHandler}>Submit Order</button>
                         <hr/>
                         <BootstrapTable bootstrap4={true} classes="table-striped table-dark" keyField='id'
                                         data={existingOrders}
