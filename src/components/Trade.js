@@ -9,7 +9,6 @@ class Trade extends Component {
         super(props);
         this.state = {
             ticker: '',
-            companyName: '',
             orderType: '',
             orderPrice: '',
             orderVolumn: '',
@@ -57,26 +56,26 @@ class Trade extends Component {
     onSubmitHandler = (e) => {
         e.preventDefault();
         const ticker = this.state.ticker;
-        const companyName = this.state.companyName;
         const orderType = this.state.orderType;
-        const orderPrice = this.state.orderPrice;
+        const orderPrice = this.state.orderPrice.length === 0 ? null:this.state.orderPrice;
         const orderVolumn = this.state.orderVolumn;
         const feedbackData = {
-            ticker: ticker,
-            companyName: companyName,
-            orderType: orderType,
-            orderPrice: orderPrice,
-            orderVolumn: orderVolumn,
+            order: {
+                ticker: ticker,
+                order_type: orderType,
+                order_price: orderPrice,
+                order_volumn: orderVolumn,
+                created_at: "2012-12-17T11:04:35"
+            }
         };
         axios.defaults.xsrfHeaderName = "X-CSRFToken";
         axios.defaults.xsrfCookieName = "csrftoken";
         axios.post('' +
-            // 'http://localhost:8080/api/setorder/'
-            'https://alphaspring.herokuapp.com/api/setorder/'
+            // 'http://localhost:8000/api/order/'
+            'https://alphasmartback.herokuapp.com/api/order/'
             , feedbackData).then(this.fetchTable);
         this.setState({
             ticker: '',
-            companyName: '',
             orderType: '',
             orderPrice: '',
             orderVolumn: '',
@@ -86,8 +85,8 @@ class Trade extends Component {
 
     fetchTable = () => {
         fetch(
-            // 'http://localhost:8080/api/getorder/'
-            'https://alphaspring.herokuapp.com/api/getorder/'
+            // 'http://localhost:8000/api/order/'
+        'https://alphasmartback.herokuapp.com/api/order/'
         )
             .then(res => res.json())
             .then((data) => {
@@ -111,10 +110,10 @@ class Trade extends Component {
         const columns = [
             {dataField: "id", text: 'Order ID', sort: true},
             {dataField: "ticker", text: 'Stock Name'},
-            {dataField: "orderType", text: 'Order Type'},
-            {dataField: "orderPrice", text: 'Order Price'},
-            {dataField: "orderVolumn", text: 'Order Volumn'},
-            {dataField: "createdDate", text: 'Time Received'}
+            {dataField: "order_type", text: 'Order Type'},
+            {dataField: "order_price", text: 'Order Price'},
+            {dataField: "order_volumn", text: 'Order Volumn'},
+            {dataField: "created_at", text: 'Time Received'}
         ];
 
 
@@ -156,7 +155,7 @@ class Trade extends Component {
                             <input type="number" className="form-control" name="orderPrice"
                                    value={this.state.orderPrice} disabled={this.state.orderPriceDisabled ? true : null}
                                    onChange={this.onChangeOrderPriceHandler}
-                                   placeholder="Enter"/>
+                                   placeholder="Enter (e.g. 10.55 . Unapplicable to Market Order)"/>
                         </div>
 
                         <div className="form-group col-md-6">
@@ -164,7 +163,7 @@ class Trade extends Component {
                             <input type="number" className="form-control" name="orderVolumn"
                                    value={this.state.orderVolumn}
                                    onChange={this.onChangeOrderVolumnHandler}
-                                   placeholder="Enter"/>
+                                   placeholder="Enter (e.g. 5000)"/>
                         </div>
                     </div>
                     <button disabled={this.state.submitButtonDisabled} type="submit" id="subBtn"

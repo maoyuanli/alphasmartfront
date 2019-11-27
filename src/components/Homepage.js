@@ -58,7 +58,7 @@ class Homepage extends Component {
                 <div className="jumbotron text-center">
 
                     <div id="BuiltWith" className="container">
-                        <h3 className="jumbotron-heading">Built with Microservices</h3>
+                        <h3 className="jumbotron-heading">Built with React and Django</h3>
                         <h2 className="jumbotron-heading">Powered by AI</h2>
 
                         <div>

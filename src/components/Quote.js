@@ -20,7 +20,7 @@ class Quote extends Component {
     componentDidMount() {
         fetch(
             'https://alphasmartback.herokuapp.com/api/quote/'
-            // 'http://localhost:8080/api/quote/'
+            // 'http://localhost:8000/api/quote/'
         )
             .then(res => res.json())
             .then((data) => {

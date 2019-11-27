@@ -14,8 +14,8 @@ class Tweet extends Component {
 
     componentDidMount() {
         fetch(
-            'https://alphaspring.herokuapp.com/api/tweet/'
-            // 'http://localhost:8080/api/tweet/'
+            'https://alphasmartback.herokuapp.com/api/tweet/'
+            // 'http://localhost:8000/api/tweet/'
         )
             .then(res => res.json())
             .then((data) => {
@@ -38,8 +38,8 @@ class Tweet extends Component {
                                     <div key={index} className="ticker-item">
                                         <div>
                                             <p >
-                                                <img id="tweet_avatar" src={tweet.user.profileImageUrlHttps} alt="Avatar"></img>
-                                                <span>@{tweet.user.screenName} : </span>
+                                                <img id="tweet_avatar" src={tweet.user.profile_image_url_https} alt="Avatar"></img>
+                                                <span>@{tweet.user.screen_name} : </span>
                                                 <span> {tweet.text.split('https')[0]} </span>
                                                 {/*<span> | {tweet.createdAt} </span>*/}
                                             </p>
