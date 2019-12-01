@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import linkedMugshot from './static/linkedin_mugshot.jpg';
 import {
-    topWordsFormat,
+    topWordsFormat, switchUrl
 } from './utilities/utils';
 import Stockmarket from "./Stockmarket";
 import SharedNavBar from "./utilities/SharedNavBar";
@@ -23,7 +23,9 @@ class Homepage extends Component {
 
 
     componentDidMount() {
-        fetch('https://alphasmartback.herokuapp.com/api/homepage/')
+        fetch(
+            switchUrl('homepage')
+        )
             .then(res => res.json())
             .then((data) => {
                 this.setState({
@@ -31,7 +33,7 @@ class Homepage extends Component {
                     topWordsOfAll: topWordsFormat(data.articles[0].top_words_of_all)
                 })
             });
-        fetch('https://alphasmartback.herokuapp.com/api/stockmarket/')
+        fetch(switchUrl('stockmarket'))
             .then(res => res.json())
             .then((data) => {
                 this.setState({market: data.market_return, loading: false})

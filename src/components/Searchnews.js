@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import SharedNavBar from "./utilities/SharedNavBar";
 import SharedHeader from "./utilities/SharedHeader";
 import SharedArticlesTable from "./utilities/SharedArticlesTable";
+import {switchUrl} from "./utilities/utils";
 
 class Searchnews extends Component {
 
@@ -29,7 +30,7 @@ class Searchnews extends Component {
     }
 
     submit(event) {
-        let url = 'https://alphasmartback.herokuapp.com/api/searchnews/?q=' + encodeURI(this.state.term);
+        let url = switchUrl('searchnews')+'?q=' + encodeURI(this.state.term);
         fetch(url).then(res => res.json())
             .then((data) => {
                 this.setState({articles: data.articles})

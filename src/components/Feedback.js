@@ -4,6 +4,7 @@ import axios from 'axios';
 import Popup from 'reactjs-popup';
 import SharedNavBar from "./utilities/SharedNavBar";
 import SharedHeader from "./utilities/SharedHeader";
+import {switchUrl} from "./utilities/utils";
 
 
 class Feedback extends Component {
@@ -55,7 +56,7 @@ class Feedback extends Component {
         }
         axios.defaults.xsrfHeaderName = "X-CSRFToken";
         axios.defaults.xsrfCookieName = "csrftoken";
-        axios.post('https://alphasmartback.herokuapp.com/api/feedback/', feedbackData)
+        axios.post(switchUrl('feedback'), feedbackData)
             .then((data) => {
                 this.setState({submitResult: data})
             })
@@ -69,8 +70,8 @@ class Feedback extends Component {
     render() {
         const goBackLinks = [
             {
-                address:'/',
-                text:'Back to Homepage'
+                address: '/',
+                text: 'Back to Homepage'
             }
         ];
         const subRslt = this.state.submitResult.data;
@@ -111,11 +112,12 @@ class Feedback extends Component {
                                   onChange={this.onChangeCommentHandler}
                                   placeholder="What did Father use to say? Everything before the word ‘but’ is horse-shit."></textarea>
                     </div>
-                    <Popup trigger={<button id="subBtn" className="btn btn-success" onClick={this.handleFeedbackSuccess}>Submit</button>} modal
+                    <Popup trigger={<button id="subBtn" className="btn btn-success"
+                                            onClick={this.handleFeedbackSuccess}>Submit</button>} modal
                            closeOnDocumentClick>
                         <div id="SuccessMsg" className="alert alert-light" role="alert">
                             <h4 className="alert-heading">Thank you for your feedback!</h4>
-                            <hr className="new1" />
+                            <hr className="new1"/>
                             <p>{subRsltText}</p>
                         </div>
                     </Popup>

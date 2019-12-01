@@ -6,6 +6,7 @@ import WaitLoader from './utilities/WaitLoader';
 import SharedHeader from "./utilities/SharedHeader";
 import Tweet from "./Tweet";
 import Trade from "./Trade";
+import {switchUrl} from "./utilities/utils";
 
 class Quote extends Component {
 
@@ -18,9 +19,7 @@ class Quote extends Component {
     }
 
     componentDidMount() {
-        fetch(
-            'https://alphasmartback.herokuapp.com/api/quote/'
-            // 'http://localhost:8000/api/quote/'
+        fetch(switchUrl('quote')
         )
             .then(res => res.json())
             .then((data) => {

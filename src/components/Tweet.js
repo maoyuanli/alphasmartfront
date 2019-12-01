@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-
+import {switchUrl} from "./utilities/utils";
 
 class Tweet extends Component {
 
@@ -14,8 +14,7 @@ class Tweet extends Component {
 
     componentDidMount() {
         fetch(
-            'https://alphasmartback.herokuapp.com/api/tweet/'
-            // 'http://localhost:8000/api/tweet/'
+            switchUrl('tweet')
         )
             .then(res => res.json())
             .then((data) => {

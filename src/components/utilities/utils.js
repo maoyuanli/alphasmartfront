@@ -52,11 +52,24 @@ const ScoreNumColorStyle = {
     topwords_style: {'ontStyle': 'italic', 'fontFamily': 'serif', 'fontWeight': 'bold'}
 };
 
+const switchUrl = (page) => {
+    let urls = {
+        heroku:'https://alphasmartback.herokuapp.com/api/',
+        local:'http://localhost:8000/api/'
+    };
+
+    let currentInUse = urls.heroku;
+
+    return currentInUse + page + '/'
+
+};
+
 module.exports = {
     avgSentScore,
     publishTimeCleaner,
     topWordsFormat,
     marketChangeFormat,
     filterZeroSentScore,
-    ScoreNumColorStyle
+    ScoreNumColorStyle,
+    switchUrl
 };

@@ -2,9 +2,11 @@ import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios';
 import BootstrapTable from 'react-bootstrap-table-next';
+import {switchUrl} from "./utilities/utils";
 
 
 class Trade extends Component {
+    pageUrl = switchUrl('order');
     constructor(props) {
         super(props);
         this.state = {
@@ -70,9 +72,8 @@ class Trade extends Component {
         };
         axios.defaults.xsrfHeaderName = "X-CSRFToken";
         axios.defaults.xsrfCookieName = "csrftoken";
-        axios.post('' +
-            // 'http://localhost:8000/api/order/'
-            'https://alphasmartback.herokuapp.com/api/order/'
+        axios.post(
+            this.pageUrl
             , feedbackData).then(this.fetchTable);
         this.setState({
             ticker: '',
@@ -85,8 +86,7 @@ class Trade extends Component {
 
     fetchTable = () => {
         fetch(
-            // 'http://localhost:8000/api/order/'
-        'https://alphasmartback.herokuapp.com/api/order/'
+            this.pageUrl
         )
             .then(res => res.json())
             .then((data) => {
