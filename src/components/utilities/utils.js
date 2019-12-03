@@ -59,7 +59,7 @@ const switchUrl = (page) => {
         local:'http://localhost:8000/api/'
     };
 
-    let currentInUse = urls.aws;
+    let currentInUse = urls.heroku;
 
     return currentInUse + page + '/'
 
