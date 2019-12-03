@@ -55,10 +55,11 @@ const ScoreNumColorStyle = {
 const switchUrl = (page) => {
     let urls = {
         heroku:'https://alphasmartback.herokuapp.com/api/',
+        aws:'http://ec2-3-87-255-104.compute-1.amazonaws.com:8000/api/',
         local:'http://localhost:8000/api/'
     };
 
-    let currentInUse = urls.heroku;
+    let currentInUse = urls.aws;
 
     return currentInUse + page + '/'
 
