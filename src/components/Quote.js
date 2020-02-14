@@ -19,7 +19,7 @@ class Quote extends Component {
     }
 
     componentDidMount() {
-        fetch(switchUrl('quote')
+        fetch(switchUrl('spring','quote')
         )
             .then(res => res.json())
             .then((data) => {

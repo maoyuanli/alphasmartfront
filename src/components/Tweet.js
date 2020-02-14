@@ -14,7 +14,7 @@ class Tweet extends Component {
 
     componentDidMount() {
         fetch(
-            switchUrl('tweet')
+            switchUrl('spring','tweet')
         )
             .then(res => res.json())
             .then((data) => {
@@ -36,10 +36,11 @@ class Tweet extends Component {
                                 return (
                                     <div key={index} className="ticker-item">
                                         <div>
-                                            <p>
-                                                <img id="tweet_avatar" src={tweet.user.profile_image_url_https}
-                                                     alt="Avatar"></img>
-                                                <span>@{tweet.user.screen_name} : </span>
+                                            <p >
+                                                {/*<img id="tweet_avatar" src={tweet.user.profile_image_url_https} alt="Avatar"></img>*/}
+                                                <img id="tweet_avatar" src={tweet.user.profileImageUrlHttps} alt="Avatar"></img>
+                                                {/*<span>@{tweet.user.screen_name} : </span>*/}
+                                                <span>@{tweet.user.screenName} : </span>
                                                 <span> {tweet.text.split('https')[0]} </span>
                                             </p>
                                         </div>

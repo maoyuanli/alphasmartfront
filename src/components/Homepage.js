@@ -24,7 +24,7 @@ class Homepage extends Component {
 
     componentDidMount() {
         fetch(
-            switchUrl('homepage')
+            switchUrl('django','homepage')
         )
             .then(res => res.json())
             .then((data) => {
@@ -33,7 +33,7 @@ class Homepage extends Component {
                     topWordsOfAll: topWordsFormat(data.articles[0].top_words_of_all)
                 })
             });
-        fetch(switchUrl('stockmarket'))
+        fetch(switchUrl('django','stockmarket'))
             .then(res => res.json())
             .then((data) => {
                 this.setState({market: data.market_return, loading: false})

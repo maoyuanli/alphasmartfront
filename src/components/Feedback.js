@@ -56,7 +56,7 @@ class Feedback extends Component {
         }
         axios.defaults.xsrfHeaderName = "X-CSRFToken";
         axios.defaults.xsrfCookieName = "csrftoken";
-        axios.post(switchUrl('feedback'), feedbackData)
+        axios.post(switchUrl('django','feedback'), feedbackData)
             .then((data) => {
                 this.setState({submitResult: data})
             })

@@ -6,8 +6,7 @@ import {switchUrl} from "./utilities/utils";
 
 
 class Trade extends Component {
-    pageUrl = switchUrl('order');
-
+    pageUrl = switchUrl('django','order');
     constructor(props) {
         super(props);
         this.state = {

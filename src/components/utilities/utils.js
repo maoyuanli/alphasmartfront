@@ -52,14 +52,15 @@ const ScoreNumColorStyle = {
     topwords_style: {'ontStyle': 'italic', 'fontFamily': 'serif', 'fontWeight': 'bold'}
 };
 
-const switchUrl = (page) => {
+const switchUrl = (url,page) => {
     let urls = {
-        heroku:'https://alphasmartback.herokuapp.com/api/',
+        django:'https://alphasmartback.herokuapp.com/api/',
+        spring:'https://alphaspring.herokuapp.com/api/',
         aws:'http://ec2-3-87-255-104.compute-1.amazonaws.com:8000/api/',
         local:'http://localhost:8000/api/'
     };
 
-    let currentInUse = urls.heroku;
+    let currentInUse = urls[url];
 
     return currentInUse + page + '/'
 
