@@ -36,11 +36,11 @@ class Tweet extends Component {
                                 return (
                                     <div key={index} className="ticker-item">
                                         <div>
-                                            <p >
-                                                <img id="tweet_avatar" src={tweet.user.profile_image_url_https} alt="Avatar"></img>
+                                            <p>
+                                                <img id="tweet_avatar" src={tweet.user.profile_image_url_https}
+                                                     alt="Avatar"></img>
                                                 <span>@{tweet.user.screen_name} : </span>
                                                 <span> {tweet.text.split('https')[0]} </span>
-                                                {/*<span> | {tweet.createdAt} </span>*/}
                                             </p>
                                         </div>
                                     </div>

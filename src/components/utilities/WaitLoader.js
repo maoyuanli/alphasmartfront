@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import { css } from '@emotion/core';
+import {css} from '@emotion/core';
 import GridLoader from 'react-spinners/GridLoader';
 import 'bootstrap/dist/css/bootstrap.css'
 
-class WaitLoader extends Component{
+class WaitLoader extends Component {
 
     render() {
 
@@ -14,7 +14,7 @@ class WaitLoader extends Component{
                      
                         `;
 
-        if(this.props.loading === true){
+        if (this.props.loading === true) {
             return <div className='sweet-loading'>
                 <br/>
                 <h2>Calculating </h2>
@@ -27,7 +27,7 @@ class WaitLoader extends Component{
                     loading={this.props.loading}
                 />
             </div>
-        }else {
+        } else {
             return <div></div>
         }
 
@@ -35,4 +35,5 @@ class WaitLoader extends Component{
 
 
 }
+
 export default WaitLoader;

@@ -30,7 +30,7 @@ class Searchnews extends Component {
     }
 
     submit(event) {
-        let url = switchUrl('searchnews')+'?q=' + encodeURI(this.state.term);
+        let url = switchUrl('searchnews') + '?q=' + encodeURI(this.state.term);
         fetch(url).then(res => res.json())
             .then((data) => {
                 this.setState({articles: data.articles})

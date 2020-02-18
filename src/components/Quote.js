@@ -36,8 +36,8 @@ class Quote extends Component {
     getDayfromDate = date => date.split(/[- ]+/).pop();
     datePricePair = (data) => {
         let rslt = [['x', 'close']];
-        for (let i = data.length-1; i >= 0; i--) {
-            rslt.push([data[i][0],data[i][4]])
+        for (let i = data.length - 1; i >= 0; i--) {
+            rslt.push([data[i][0], data[i][4]])
         }
         return rslt;
     };
@@ -71,7 +71,7 @@ class Quote extends Component {
                         <div className="row justify-content-center">
                             <section>
                                 <div id="news_ticker" className="container">
-                                    <Tweet />
+                                    <Tweet/>
                                 </div>
                             </section>
                             <div className="card-columns">
@@ -117,8 +117,7 @@ class Quote extends Component {
                     construed as investment advice.
                 </footer>
 
-                <Trade />
-
+                <Trade/>
             </div>
         )
     }

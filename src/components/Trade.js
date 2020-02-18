@@ -7,6 +7,7 @@ import {switchUrl} from "./utilities/utils";
 
 class Trade extends Component {
     pageUrl = switchUrl('order');
+
     constructor(props) {
         super(props);
         this.state = {
@@ -59,7 +60,7 @@ class Trade extends Component {
         e.preventDefault();
         const ticker = this.state.ticker;
         const orderType = this.state.orderType;
-        const orderPrice = this.state.orderPrice.length === 0 ? null:this.state.orderPrice;
+        const orderPrice = this.state.orderPrice.length === 0 ? null : this.state.orderPrice;
         const orderVolumn = this.state.orderVolumn;
         const feedbackData = {
             order: {

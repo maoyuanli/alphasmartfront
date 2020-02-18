@@ -74,7 +74,6 @@ class Homepage extends Component {
                                 src={linkedMugshot}
                                 alt="Avatar" id={"linkedin_mugshot"}/>
                         </div>
-                        {/*<div><p id={"CFA"}>Mao-Yuan Li CFA, OCP, LL.M</p></div>*/}
                         <div>
                             <a href="mailto:maoyuan@gmail.com" className="btn btn-primary my-2">Send Email to
                                 Mao</a>

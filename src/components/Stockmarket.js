@@ -18,7 +18,6 @@ class Stockmarket extends Component {
             rslts = this.props.market;
         }
 
-
         return (
             <div>
                 <div>
@@ -36,7 +35,7 @@ class Stockmarket extends Component {
                         </tr>
                         </thead>
 
-                        <tbody id = "market_table">
+                        <tbody id="market_table">
                         <tr>
                             <td>{rslts.latest_date}</td>
                             <td>{rslts.latest_val}</td>

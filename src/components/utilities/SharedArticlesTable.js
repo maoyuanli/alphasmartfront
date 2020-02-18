@@ -48,7 +48,6 @@ class SharedArticlesTable extends Component {
                         <th>Title</th>
                         <th>Sentiment</th>
                         <th>Source</th>
-                        {/*<th>Summary</th>*/}
                         <th>Publish Date</th>
                     </tr>
                     </thead>
@@ -61,7 +60,6 @@ class SharedArticlesTable extends Component {
                                     style={(article.sentiment >= 0) ? ScoreNumColorStyle.green : ScoreNumColorStyle.red}>{article.sentiment}</span>
                                 </td>
                                 <td>{article.source.name}</td>
-                                {/*<td>{article.description}</td>*/}
                                 <td>{publishTimeCleaner(article.publishedAt)}</td>
                             </tr>
 
