@@ -31,8 +31,10 @@ class Quote extends Component {
 
     }
 
-    volFormat = vol => vol.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-    priceFormat = price => price.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+    volFormat = vol => {if(vol!=null)
+    {vol.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}else {return "0"}
+    };
+    priceFormat = price => price.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     getDayfromDate = date => date.split(/[- ]+/).pop();
     datePricePair = (data) => {
         let rslt = [['x', 'close']];
