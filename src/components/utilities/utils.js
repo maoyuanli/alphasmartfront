@@ -57,7 +57,7 @@ const switchUrl = (url,page) => {
         django:'https://alphasmartback.herokuapp.com/api/',
         spring:'https://alphaspring.herokuapp.com/api/',
         aws:'http://ec2-3-87-255-104.compute-1.amazonaws.com:8000/api/',
-        local:'http://localhost:8000/api/'
+        local:'http://localhost:8080/api/'
     };
 
     let currentInUse = urls[url];
