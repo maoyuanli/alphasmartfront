@@ -6,7 +6,8 @@ import {switchUrl} from "./utilities/utils";
 
 
 class Trade extends Component {
-    pageUrl = switchUrl('django','order');
+    setOrder = switchUrl('local','setorder');
+    getOrder = switchUrl('local','getorder');
     constructor(props) {
         super(props);
         this.state = {
@@ -67,13 +68,12 @@ class Trade extends Component {
                 order_type: orderType,
                 order_price: orderPrice,
                 order_volumn: orderVolumn,
-                created_at: "2012-12-17T11:04:35"
             }
         };
         axios.defaults.xsrfHeaderName = "X-CSRFToken";
         axios.defaults.xsrfCookieName = "csrftoken";
         axios.post(
-            this.pageUrl
+            this.setOrder
             , feedbackData).then(this.fetchTable);
         this.setState({
             ticker: '',
@@ -86,7 +86,7 @@ class Trade extends Component {
 
     fetchTable = () => {
         fetch(
-            this.pageUrl
+            this.getOrder
         )
             .then(res => res.json())
             .then((data) => {
@@ -110,10 +110,10 @@ class Trade extends Component {
         const columns = [
             {dataField: "id", text: 'Order ID', sort: true},
             {dataField: "ticker", text: 'Stock Name'},
-            {dataField: "order_type", text: 'Order Type'},
-            {dataField: "order_price", text: 'Order Price'},
-            {dataField: "order_volumn", text: 'Order Volumn'},
-            {dataField: "created_at", text: 'Time Received'}
+            {dataField: "orderType", text: 'Order Type'},
+            {dataField: "orderPrice", text: 'Order Price'},
+            {dataField: "orderVolumn", text: 'Order Volumn'},
+            {dataField: "createdDate", text: 'Time Received'}
         ];
 
 
