@@ -6,8 +6,9 @@ import {switchUrl} from "./utilities/utils";
 
 
 class Trade extends Component {
-    setOrder = switchUrl('local','setorder');
-    getOrder = switchUrl('local','getorder');
+    setOrder = switchUrl('spring', 'setorder');
+    getOrder = switchUrl('spring', 'getorder');
+
     constructor(props) {
         super(props);
         this.state = {

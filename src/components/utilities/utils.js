@@ -37,7 +37,7 @@ const marketChangeFormat = function (rawNum) {
 
 const filterZeroSentScore = (articles) => {
     const rslt = articles.filter((article) => {
-        if (article.sentiment !== 0 ) {
+        if (article.sentiment !== 0) {
             return article;
         } else {
             return null;
@@ -52,12 +52,11 @@ const ScoreNumColorStyle = {
     topwords_style: {'ontStyle': 'italic', 'fontFamily': 'serif', 'fontWeight': 'bold'}
 };
 
-const switchUrl = (url,page) => {
+const switchUrl = (url, page) => {
     let urls = {
-        django:'https://alphasmartback.herokuapp.com/api/',
-        spring:'https://alphaspring.herokuapp.com/api/',
-        aws:'http://ec2-3-87-255-104.compute-1.amazonaws.com:8000/api/',
-        local:'http://localhost:8080/api/'
+        django: 'https://alphasmartback.herokuapp.com/api/',
+        spring: 'https://alphaspring.herokuapp.com/api/',
+        local: 'http://localhost:8080/api/'
     };
 
     let currentInUse = urls[url];

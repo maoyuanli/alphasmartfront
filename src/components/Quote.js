@@ -19,7 +19,7 @@ class Quote extends Component {
     }
 
     componentDidMount() {
-        fetch(switchUrl('spring','quote')
+        fetch(switchUrl('spring', 'quote')
         )
             .then(res => res.json())
             .then((data) => {
@@ -31,8 +31,12 @@ class Quote extends Component {
 
     }
 
-    volFormat = vol => {if(vol!=null)
-    {vol.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}else {return "0"}
+    volFormat = vol => {
+        if (vol != null) {
+            vol.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+        } else {
+            return "0"
+        }
     };
     priceFormat = price => price.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
     getDayfromDate = date => date.split(/[- ]+/).pop();

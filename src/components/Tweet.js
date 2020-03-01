@@ -37,9 +37,7 @@ class Tweet extends Component {
                                     <div key={index} className="ticker-item">
                                         <div>
                                             <p >
-                                                {/*<img id="tweet_avatar" src={tweet.user.profile_image_url_https} alt="Avatar"></img>*/}
                                                 <img id="tweet_avatar" src={tweet.user.profileImageUrlHttps} alt="Avatar"></img>
-                                                {/*<span>@{tweet.user.screen_name} : </span>*/}
                                                 <span>@{tweet.user.screenName} : </span>
                                                 <span> {tweet.text.split('https')[0]} </span>
                                             </p>
