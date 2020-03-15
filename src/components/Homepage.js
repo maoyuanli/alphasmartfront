@@ -23,8 +23,11 @@ class Homepage extends Component {
 
 
     componentDidMount() {
+        let articleReady = false;
+        let marketReady = false;
+
         fetch(
-            switchUrl('django','homepage')
+            switchUrl('django', 'homepage')
         )
             .then(res => res.json())
             .then((data) => {
@@ -32,12 +35,16 @@ class Homepage extends Component {
                     articles: data.articles,
                     topWordsOfAll: topWordsFormat(data.articles[0].top_words_of_all)
                 })
-            });
-        fetch(switchUrl('django','stockmarket'))
+            }).then(articleReady=true);
+        fetch(switchUrl('django', 'stockmarket'))
             .then(res => res.json())
             .then((data) => {
-                this.setState({market: data.market_return, loading: false})
-            });
+                this.setState({market: data.market_return})
+            }).then(marketReady=true);
+
+        if(articleReady&&marketReady){
+            this.setState({loading:false});
+        }
     }
 
 
