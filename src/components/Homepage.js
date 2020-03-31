@@ -23,9 +23,6 @@ class Homepage extends Component {
 
 
     componentDidMount() {
-        let articleReady = false;
-        let marketReady = false;
-
         fetch(
             switchUrl('django', 'homepage')
         )
@@ -33,18 +30,10 @@ class Homepage extends Component {
             .then((data) => {
                 this.setState({
                     articles: data.articles,
-                    topWordsOfAll: topWordsFormat(data.articles[0].top_words_of_all)
+                    topWordsOfAll: topWordsFormat(data.articles[0].top_words_of_all),
+                    loading:false
                 })
-            }).then(articleReady=true);
-        fetch(switchUrl('django', 'stockmarket'))
-            .then(res => res.json())
-            .then((data) => {
-                this.setState({market: data.market_return})
-            }).then(marketReady=true);
-
-        if(articleReady&&marketReady){
-            this.setState({loading:false});
-        }
+            });
     }
 
 
@@ -91,7 +80,7 @@ class Homepage extends Component {
                 <WaitLoader loading={this.state.loading}/>
                 <section>
                     <div className="container">
-                        <Stockmarket market={this.state.market}></Stockmarket>
+                        <Stockmarket></Stockmarket>
                     </div>
                 </section>
                 <br/>
